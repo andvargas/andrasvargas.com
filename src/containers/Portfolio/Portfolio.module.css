@@ -1,0 +1,10 @@
+.PortfolioItems {
+    background-color: rgb(255, 253, 244);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.container {
+    background-color: rgb(255, 253, 244);
+}

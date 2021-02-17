@@ -1,0 +1,21 @@
+.Contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: #56001e;
+}
+.form {
+    /* background-color: #F3F0DC; */
+    
+    width: 40%;
+}
+.container {
+    min-height: 50vh;
+    background-color: #F3F0DC;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
