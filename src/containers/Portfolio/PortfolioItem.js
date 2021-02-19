@@ -24,7 +24,7 @@ export default function ImgMediaCard(props) {
     const classes = useStyles();
     return (
         <Card className={classes.root}>
-            <a className={classes.link} href="http://www.andrasvargas.com">
+            <a className={classes.link} href="https://www.andrasvargas.com">
                 <CardActionArea>
                 <CardMedia
                     component="img"
