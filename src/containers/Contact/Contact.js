@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Contact.module.css';
-// import { Redirect } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
@@ -114,6 +114,7 @@ class Contact extends Component {
     }
 
     render () {
+        console.log(window.location.hostname)
         const formElementsArray = [];
         for (let key in this.state.contactForm) {
             formElementsArray.push({
@@ -141,6 +142,10 @@ class Contact extends Component {
         )
         return (
             <div className={classes.Contact}>
+                <Helmet>
+                    <title>Contact Us</title>
+                    <link rel="canonical" href={window.location.hostname + "/contact"} />
+                </Helmet>
                 
                 <div className={classes.container}>
                     {form}

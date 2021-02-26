@@ -20,7 +20,8 @@ class PortfolioItems extends Component {
                             key={card._id}
                             img={'https://api.andrasvargas.com/portfolio-items/' + card._id + '/img'}
                             title={card.title}
-                            description={card.description} />
+                            description={card.description}
+                            link={card.link} />
                     ))}
                     
                 </div>

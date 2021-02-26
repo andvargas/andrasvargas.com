@@ -32,8 +32,9 @@ hr.animated {
   width: 100%;
   color: #56001e;
   animation: expand 2s ease-in-out;
-  border: solid 3px #56001e;
+  border-top: solid 5px #56001e;
   margin: 0;
+  box-sizing: border-box;
 }
 .quote {
   font-family:  Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;

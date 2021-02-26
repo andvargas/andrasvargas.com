@@ -7,6 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Input from '../../components/UI/Input/Input';
 import * as actions from '../../store/actions/index';
 import NavBarSmall from '../../components/Navigation/NavBarSmall';
+import Helmet from 'react-helmet';
 
 
 class Auth extends Component {
@@ -109,6 +110,10 @@ class Auth extends Component {
         }
         let form = (
             <form onSubmit={this.submitHandler}>
+                <Helmet>
+                    <title>Register/Log In</title>
+                    <link rel="canonical" href={window.location.hostname + "/register"} />
+                </Helmet>
                 <h2>{this.state.isSignup ? 'Sign Up' : 'Log In'}</h2>
                 {formElementsArray.map(formElement => (
                     <Input

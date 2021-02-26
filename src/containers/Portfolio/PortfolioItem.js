@@ -24,7 +24,7 @@ export default function ImgMediaCard(props) {
     const classes = useStyles();
     return (
         <Card className={classes.root}>
-            <a className={classes.link} href="https://www.andrasvargas.com">
+            <a className={classes.link} href={props.link} target="_blank" rel="noopener noreferrer">
                 <CardActionArea>
                 <CardMedia
                     component="img"
@@ -46,11 +46,12 @@ export default function ImgMediaCard(props) {
             
             <CardActions>
                 <Button size="small" color="primary">
-                    I want the same
-        </Button>
+                    I'm interested in similar
+                </Button>
+                
                 <Button size="small" color="primary">
                     Learn More
-        </Button>
+                </Button>
             </CardActions>
         </Card>
     );

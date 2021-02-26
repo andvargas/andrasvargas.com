@@ -4,12 +4,16 @@ import { connect } from 'react-redux';
 import Logo from '../../components/Logo/Logo';
 import NavBarSmall from "../../components/Navigation/NavBarSmall";
 import PortfolioItems from "../Portfolio/PortfolioItems";
+import Helmet from 'react-helmet';
 
 class Homepage extends Component {
     render () {
-        console.log(this.props)
         return (
             <div>
+                <Helmet>
+                    <title>Andras Vargas | HomePage</title>
+                    <link rel="canonical" href={`${window.location.hostname}/`} />
+                </Helmet>
                 <header className="App-header">
                     <Logo />
                     <h1 className="headline">ANDRAS VARGAS</h1>
