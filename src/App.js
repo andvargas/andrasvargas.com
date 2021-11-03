@@ -10,6 +10,8 @@ import Dashboard from './containers/Protected/Dashboard';
 import Logout from "./containers/Auth/Logout/Logout";
 import Homepage from "./containers/Homepage/Homepage";
 import * as actions from './store/actions/index';
+import Page from './containers/Page/Page';
+import Footer from './containers/Footer/Footer';
 
 
 const theme = createMuiTheme({
@@ -19,6 +21,16 @@ const theme = createMuiTheme({
     },
     secondary: {
       main: '#56001e'
+    }
+  },
+  typography: {
+    fontFamily: [
+      'sans-serif',
+      'Roboto'
+    ],
+    h1: {
+      fontSize: 30,
+      fontWeight: 'bold'
     }
   },
   overrides: {
@@ -37,12 +49,18 @@ class App extends Component {
   render () {
     // guests
     let routes = (
-      <Switch>
-        <Route path="/register" component={Auth} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/" component={Homepage} />
-        <Redirect to="/" />
-      </Switch>
+      <div>
+        <Switch>
+          <Route path="/about" component={Page} />
+          <Route path="/register" component={Auth} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/" component={Homepage} />
+          <Route path="/" component={Footer} />
+          <Redirect to="/" />
+        </Switch>
+
+        <Route path="/" component={Footer} />
+      </div>
     );
     // users logged in
     if (this.props.isAuthenticated) {
@@ -51,24 +69,17 @@ class App extends Component {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/contact" component={Contact} />
           <Route path="/logout" component={Logout} />
+          <Route path="/" component={Footer} />
           <Route path="/" component={Homepage} />
         </Switch>
-      )
+      );
     }
     return (
     <ThemeProvider theme={theme}>
       <div className="App">
         {routes}
-        {/* <Route path="/" exact component={Homepage} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/contact" component={Contact}/>
-        <Switch>
-          <Route path="/register" component={Auth} />
-          <Route path="/logout" component={Logout} />
-        </Switch> */}
       </div>
     </ThemeProvider>
-    
   );
   }
 }

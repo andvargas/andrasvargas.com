@@ -1,13 +1,12 @@
+// for some reason is not working when submitting 11 Apr. AV
 import React, { Component } from 'react';
-import classes from './Contact.module.css';
-import { Helmet } from "react-helmet";
+import classes from '../containers/Contact/Contact.module.css';
 
-import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/Button/Button';
-import NavBarSmall from '../../components/Navigation/NavBarSmall';
-import axios from '../../axios-instance';
+import Input from './UI/Input/Input';
+import Button from './UI/Button/Button';
+import axios from '../axios-instance';
 
-class Contact extends Component {
+class ContactForm extends Component {
     state = {
         contactForm: {
             name: {
@@ -75,7 +74,7 @@ class Contact extends Component {
             const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
             isValid = pattern.test(value) && isValid
         }
-        
+
         if (rules.isNumeric) {
             const pattern = /^\d+$/;
             isValid = pattern.test(value) && isValid
@@ -93,7 +92,7 @@ class Contact extends Component {
         };
         updatedFormElement.value = event.target.value;
         updatedContactForm[inputIdentifier] = updatedFormElement;
-        this.setState({contactForm: updatedContactForm})
+        this.setState({ contactForm: updatedContactForm })
     }
 
     contactHandler = (event) => {
@@ -105,18 +104,17 @@ class Contact extends Component {
         axios.post('/enquiries/add', formData)
             .then(resp => {
                 console.log(resp)
-                this.props.onClose()
-                this.props.history.push('/')
+                // this.props.onClose()
+                // this.props.history.push('/')
             })
             .catch(err => {
                 console.log(err)
-                
+
             })
     }
 
-    render () {
+    render(props) {
         console.log(this.props)
-        console.log(this.state)
         const formElementsArray = [];
         for (let key in this.state.contactForm) {
             formElementsArray.push({
@@ -128,36 +126,28 @@ class Contact extends Component {
             <form onSubmit={this.contactHandler} className={classes.form}>
                 <h3>Contact</h3>
                 {formElementsArray.map(formElement => (
-                    <Input 
+                    <Input
                         key={formElement.id}
-                        elementType={formElement.config.elementType} 
-                        elementConfig={formElement.config.elementConfig} 
+                        elementType={formElement.config.elementType}
+                        elementConfig={formElement.config.elementConfig}
                         value={formElement.config.value}
                         invalid={!formElement.config.valid}
                         shouldValidate={formElement.config.validation}
                         touched={formElement.config.touched}
                         changed={(event) => this.inputChangedHandler(event, formElement.id)}
-                         />
+                    />
                 ))}
                 <Button variant="contained" color="secondary" type="submit">Submit</Button>
             </form>
         )
         return (
             <div className={classes.Contact}>
-                <Helmet>
-                    {/* <title>Contact Us*</title> */}
-                    <link rel="canonical" href={window.location.hostname + "/contact"} />
-                </Helmet>
-                
+
                 <div className={classes.container}>
                     {form}
                 </div>
-                <hr className="animated"></hr>
-                <NavBarSmall />
             </div>
         )
     }
-
 }
-
-export default Contact;
+export default ContactForm;

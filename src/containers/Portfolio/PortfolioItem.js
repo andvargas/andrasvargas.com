@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -45,13 +46,15 @@ export default function ImgMediaCard(props) {
             </a>
             
             <CardActions>
-                <Button size="small" color="primary">
-                    I'm interested in similar
-                </Button>
+                <Button /* className={classes.link} */ size="small" color="primary" onClick={props.clicked} >
+                        I'm interested in similar
+                    </Button>
+                <Link className={classes.link} to={props.buttonRight}>
+                    <Button size="small" color="primary" onClick={props.clicked} href={props.buttonRight}>
+                        Learn More
+                    </Button>
+                </Link>
                 
-                <Button size="small" color="primary">
-                    Learn More
-                </Button>
             </CardActions>
         </Card>
     );

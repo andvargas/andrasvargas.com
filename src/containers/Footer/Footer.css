@@ -1,0 +1,43 @@
+.footer {
+    min-height: 50px;
+    width: 100%;
+    background-color: #56001e;
+    font-family: Montserrat, sans-serif;
+    /* padding: 0px 10vw; */
+    bottom: 0px;
+    color: cornsilk;
+    border-top: 6px solid #ff6600;
+}
+.columns {
+    display: flex;
+    margin: auto;
+    width: 80%;
+}
+.footerCard {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    text-align: left;
+    font-size: 0.8rem;
+    padding: 20px 40px 20px 0;
+    padding-left: 0;
+}
+.copyright {
+    font-size: 0.8rem;
+    padding-bottom: 1px;
+    text-align: left;
+    padding-left: 10vw;
+}
+a {
+    color: #e9e8e8;
+}
+.btnContact {
+    width: 15vw;
+    background: #F3F0DC;
+    margin-bottom: 5px;
+    border: solid 1px black;
+    border-radius: 4px;
+}
+.btnContact:hover {
+    background: white;
+}

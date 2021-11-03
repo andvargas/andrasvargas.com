@@ -10,10 +10,9 @@ class PortfolioItems extends Component {
         this.props.onFetchProjects()
     }
     render() {
-        console.log(this.props)
         return (
             <div className={classes.container}>
-                <h1>Portfolio</h1>
+                <h1>Projects</h1>
                 <div className={classes.PortfolioItems}>
                     {this.props.prjs.map(card => (
                         <PortfolioItem
@@ -21,7 +20,10 @@ class PortfolioItems extends Component {
                             img={'https://api.andrasvargas.com/portfolio-items/' + card._id + '/img'}
                             title={card.title}
                             description={card.description}
-                            link={card.link} />
+                            link={card.link}
+                            buttonRight={card.buttonRight}
+                            buttonLeft={card.buttonLeft}
+                            clicked={this.props.clicked} />
                     ))}
                     
                 </div>
@@ -33,7 +35,6 @@ class PortfolioItems extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
     return {
         prjs: state.projects.projectCards
     }

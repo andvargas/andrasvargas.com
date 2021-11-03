@@ -5,8 +5,26 @@ import Logo from '../../components/Logo/Logo';
 import NavBarSmall from "../../components/Navigation/NavBarSmall";
 import PortfolioItems from "../Portfolio/PortfolioItems";
 import Helmet from 'react-helmet';
+import Fab from '../../components/UI/FAB/Fab';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import Modal from '../../components/UI/Modal/Modal';
+import Backdrop from '../../components/UI/Backdrop/BackDrop';
+import Contact from '../Contact/Contact';
+
 
 class Homepage extends Component {
+    state = {
+        modalIsOpen: false
+    }
+
+    showModal = () => {
+        this.setState({ modalIsOpen: true })
+    }
+
+    closeModal = () => {
+        this.setState({ modalIsOpen: false });
+    }
+
     render () {
         return (
             <div>
@@ -19,9 +37,15 @@ class Homepage extends Component {
                     <h1 className="headline">ANDRAS VARGAS</h1>
                 </header>
                 <hr className="animated"></hr>
-                <NavBarSmall isAuth={this.props.isAuthenticated}/>
-                <h2 className="quote">“Work hard in silence, let your success be your noise”</h2>
-                <PortfolioItems color="primary"/>
+                <Modal show={this.state.modalIsOpen} closed={this.closeModal} >{<Contact/>}</Modal>
+                <Backdrop show={this.state.modalIsOpen} closed={this.closeModal}/>
+                <NavBarSmall isAuth={this.props.isAuthenticated} contact={this.showModal}/>
+                <h2 className="quote">Digital Marketing / Web Development Freelance</h2>
+                <AnchorLink href="#portf"><Fab >Projects</Fab></AnchorLink>
+                <section id="portf">
+                    <PortfolioItems id="portf" color="primary" clicked={this.showModal} />
+                </section>
+                
             </div>
             
         )

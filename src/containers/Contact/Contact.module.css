@@ -5,11 +5,13 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: #56001e;
+    
 }
 .form {
     /* background-color: #F3F0DC; */
     
     width: 40%;
+    min-width: 400px;
 }
 .container {
     min-height: 50vh;

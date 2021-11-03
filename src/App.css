@@ -21,7 +21,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #56001e;
-  /* border-bottom: 3px solid #56001e; */
 }
 
 .App-link {
@@ -41,8 +40,11 @@ hr.animated {
   font-style: italic;
   font-size: 2em;
   font-weight: 200;
-  padding: 17vh 0;
+  padding: 16vh 0;
   color: #56001e;
+}
+body {
+  background-color: #fffdf4;
 }
 
 @keyframes expand {
