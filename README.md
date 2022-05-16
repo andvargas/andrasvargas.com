@@ -68,3 +68,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+---
+The live website is on [andrasvargas.com](https://andrasvargas.com)
+
+# Start documenting today:
+
+I'm inspired by this article: <https://www.freecodecamp.org/news/how-to-write-good-documentation/>
+
+- Terminal commands I typed in
+- Why I choose a particular method over another
+- Links I visited for help or coughcopy-pastecough inspiration
+- The order in which I did things
+
+Idea regarding not just this project, but in general: 
+I have to focus more on creating new code then fixing or figuring out the old ones, as I spend a lot of time on the latter, and I don't progress with my courses. 

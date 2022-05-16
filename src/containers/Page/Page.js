@@ -69,6 +69,7 @@ const steps = [
 ];
 
 const Page = (props) => {
+    console.log(props)
     const classes = useStyles();
     const [title] = useState(`Hello, I'm Andras `);
 
@@ -89,7 +90,7 @@ const Page = (props) => {
         <div>
             <Helmet>
                 <title>Andras Vargas | About Me</title>
-                <link rel="canonical" href={`${window.location.hostname}/`} />
+                <link rel="canonical" href={`${window.location.hostname}/about`} />
             </Helmet>
             <AppBar position="static" className={classes.root}>
                 <Toolbar className={classes.toolbar}>

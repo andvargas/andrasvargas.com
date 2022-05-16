@@ -4,6 +4,7 @@ import Dialog from "@material-ui/core/Dialog";
 import Contact from "../Contact/Contact";
 import avlogo from "../../staticAssets/avlogo.png";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const thisYear = new Date().getFullYear();
@@ -43,8 +44,8 @@ const Footer = () => {
         </div>
         <div className="footerCard">
           <h5>Links</h5>
-          <a href="/">Homepage</a>
-          <a href="/about">About</a>
+          <Link to="/">Homepage</Link>
+          <Link to="/about">About</Link>
         </div>
         <div className="footerCard">
           <h5>Social</h5>

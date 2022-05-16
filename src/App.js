@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { createTheme, ThemeProvider } from '@material-ui/core';
 import './App.css';
 import Contact from './containers/Contact/Contact';
 import Auth from './containers/Auth/Auth';
@@ -11,10 +11,11 @@ import Logout from "./containers/Auth/Logout/Logout";
 import Homepage from "./containers/Homepage/Homepage";
 import * as actions from './store/actions/index';
 import Page from './containers/Page/Page';
+import SamplePage from './containers/Page/SamplePage'
 import Footer from './containers/Footer/Footer';
 
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#ff6600'
@@ -52,6 +53,12 @@ class App extends Component {
       <div>
         <Switch>
           <Route path="/about" component={Page} />
+          <Route path="/sample-page" id="620fd5525d188b70b7d8ece0" component={SamplePage}>
+            {/* <SamplePage id="620fd5525d188b70b7d8ece0" /> */}
+          </Route>
+          <Route path="/seo-tool">
+            <SamplePage id="627ea3aec4b9a602f772ba1b" />
+          </Route>
           <Route path="/register" component={Auth} />
           <Route path="/contact" component={Contact} />
           <Route path="/" component={Homepage} />

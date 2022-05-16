@@ -44,7 +44,7 @@ hr.animated {
   color: #56001e;
 }
 body {
-  background-color: #fffdf4;
+  background-color: rgb(252, 252, 252);
 }
 
 @keyframes expand {
