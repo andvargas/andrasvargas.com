@@ -104,7 +104,6 @@ class Contact extends Component {
         }
         axios.post('/enquiries/add', formData)
             .then(resp => {
-                console.log(resp)
                 this.props.onClose()
                 this.props.history.push('/')
             })
@@ -115,8 +114,6 @@ class Contact extends Component {
     }
 
     render () {
-        console.log(this.props)
-        console.log(this.state)
         const formElementsArray = [];
         for (let key in this.state.contactForm) {
             formElementsArray.push({

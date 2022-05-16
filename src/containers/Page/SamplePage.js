@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SamplePage = (props) => {
-    console.log(props)
     const {id} = props
     const classes = useStyles();
 
@@ -55,8 +54,6 @@ const SamplePage = (props) => {
     const [data, setData] = useState({})
 
     useEffect(() => {
-        
-        console.log(id)
         axios.get('/content/'+ id)
             .then(response => {
                 setData(response.data)
@@ -64,7 +61,6 @@ const SamplePage = (props) => {
             })
             .catch((error) => console.log(error))
     }, [id])
-    console.log(data)
 
     const content = {
         title: data.title,

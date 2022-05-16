@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 const Modal = (props) => {
     const classes2 = useStyles();
     const cssClasses = [classes.Modal, props.show ? classes.ModalOpen : classes.ModalClosed]
-    console.log(props)
     return (
         <div className={cssClasses.join(' ')}>
             <CancelOutlinedIcon className={classes2.closeBtn} onClick={props.closed} fontSize="large"/>

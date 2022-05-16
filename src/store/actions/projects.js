@@ -19,7 +19,6 @@ export const initProjects = () => {
         axios.get('/portfolio-items/')
             .then(response => {
                 dispatch(setProjects(response.data));
-                console.log(response.data)
             })
             .catch(error => {
                 console.log(error)
