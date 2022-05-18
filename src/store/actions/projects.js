@@ -18,7 +18,9 @@ export const initProjects = () => {
     return dispatch => {
         axios.get('/portfolio-items/')
             .then(response => {
-                dispatch(setProjects(response.data));
+                const filteredProjects = response.data.filter((prj) => prj.status === 'featured').reverse()
+                console.log(filteredProjects)
+                dispatch(setProjects(filteredProjects));
             })
             .catch(error => {
                 console.log(error)

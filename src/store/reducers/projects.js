@@ -20,18 +20,6 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SET_PROJECTS: return setProjects(state, action);
         case actionTypes.FETCH_PROJECTS_FAILED: return fetchProjectsFailed(state, action);
-            /* return {
-                ...state,
-                projects: [{
-                    ...state,
-                    projects: action.prjs
-                }]
-            }; */
-        /* case actionTypes.SET_PROJECTS:
-            return {
-                ...state,
-                projects2: action.prjs
-            } */
         default: return state;
     }
     

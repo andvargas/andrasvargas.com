@@ -10,6 +10,7 @@ class PortfolioItems extends Component {
         this.props.onFetchProjects()
     }
     render() {
+        console.log(this.props)
         return (
             <div className={classes.container}>
                 <h1>Projects</h1>
