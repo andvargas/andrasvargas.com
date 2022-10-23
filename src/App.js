@@ -1,60 +1,60 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { createTheme, ThemeProvider } from '@material-ui/core';
-import './App.css';
-import Contact from './containers/Contact/Contact';
-import Auth from './containers/Auth/Auth';
-import Dashboard from './containers/Protected/Dashboard';
+import { createTheme, ThemeProvider } from "@material-ui/core";
+import "./App.css";
+import Contact from "./containers/Contact/Contact";
+import Auth from "./containers/Auth/Auth";
+import Dashboard from "./containers/Protected/Dashboard";
 import Logout from "./containers/Auth/Logout/Logout";
 import Homepage from "./containers/Homepage/Homepage";
-import * as actions from './store/actions/index';
-import Page from './containers/Page/Page';
-import SamplePage from './containers/Page/SamplePage'
-import Footer from './containers/Footer/Footer';
-import ScrollToTop from './components/UI/ScrollToTop';
-
+import * as actions from "./store/actions/index";
+import Page from "./containers/Page/Page";
+import SamplePage from "./containers/Page/SamplePage";
+import Footer from "./containers/Footer/Footer";
+import ScrollToTop from "./components/UI/ScrollToTop";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ff6600'
+      main: "#ff6600",
     },
     secondary: {
-      main: '#56001e'
-    }
+      main: "#56001e",
+    },
   },
   typography: {
-    fontFamily: [
-      'sans-serif',
-      'Roboto'
-    ],
+    fontFamily: ["sans-serif", "Roboto"],
     h1: {
       fontSize: 30,
-      fontWeight: 'bold'
-    }
+      fontWeight: "bold",
+    },
   },
   overrides: {
     MuiButton: {
       root: {
-        margin: '10px'
-      }
-    }
-  }
+        margin: "10px",
+      },
+    },
+  },
 });
 
 class App extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.onTryAutosignup();
   }
-  render () {
+  render() {
     // guests
     let routes = (
       <ScrollToTop>
         <Switch>
           <Route path="/about" component={Page} />
-          <Route path="/sample-page" id="620fd5525d188b70b7d8ece0" component={SamplePage}>
+          <Route
+            path="/sample-page"
+            id="620fd5525d188b70b7d8ece0"
+            component={SamplePage}
+          >
             {/* <SamplePage id="620fd5525d188b70b7d8ece0" /> */}
           </Route>
           <Route path="/seo-tool">
@@ -79,29 +79,28 @@ class App extends Component {
           <Route path="/logout" component={Logout} />
           <Route path="/" component={Footer} />
           <Route path="/" component={Homepage} />
+          <Redirect to="/" />
         </Switch>
       );
     }
     return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        {routes}
-      </div>
-    </ThemeProvider>
-  );
+      <ThemeProvider theme={theme}>
+        <div className="App">{routes}</div>
+      </ThemeProvider>
+    );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.auth.token !== null
-  }
-}
+    isAuthenticated: state.auth.token !== null,
+  };
+};
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onTryAutosignup: () => dispatch(actions.authCheckState())
-  }
-}
+    onTryAutosignup: () => dispatch(actions.authCheckState()),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
