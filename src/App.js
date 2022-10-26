@@ -50,11 +50,7 @@ class App extends Component {
       <ScrollToTop>
         <Switch>
           <Route path="/about" component={Page} />
-          <Route
-            path="/sample-page"
-            id="620fd5525d188b70b7d8ece0"
-            component={SamplePage}
-          >
+          <Route path="/sample-page" id="620fd5525d188b70b7d8ece0" component={SamplePage}>
             {/* <SamplePage id="620fd5525d188b70b7d8ece0" /> */}
           </Route>
           <Route path="/seo-tool">
