@@ -18,7 +18,7 @@ class PortfolioItems extends Component {
           {this.props.prjs.map((card) => (
             <PortfolioItem
               key={card._id}
-              img={"https://api-andrasvargas-com.herokuapp.com/portfolio-items/" + card._id + "/img"}
+              img={"https://api.andrasvargas.com/portfolio-items/" + card._id + "/img"}
               title={card.title}
               description={card.description}
               link={card.link}
