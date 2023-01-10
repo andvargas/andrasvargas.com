@@ -73,7 +73,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 The live website is on [andrasvargas.com](https://andrasvargas.com)
 
-# Start documenting today:
+## Start documenting today
 
 I was inspired by this article: <https://www.freecodecamp.org/news/how-to-write-good-documentation/>
 
