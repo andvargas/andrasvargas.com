@@ -1,11 +1,12 @@
-import avlogo from '../../staticAssets/avlogo.png';
+import { Link } from "react-router-dom";
+import avlogo from "../../staticAssets/av-logo.png";
 
 const logo = (props) => (
-    <div>
-        <a href="/">
-            <img src={avlogo} width="200" alt="logo" />
-        </a>
-    </div>
+  <div>
+    <Link to="/">
+      <img src={avlogo} width="200" alt="logo" />
+    </Link>
+  </div>
 );
 
 export default logo;

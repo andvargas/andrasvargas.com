@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Dialog from "@material-ui/core/Dialog";
 import Contact from "../Contact/Contact";
-import avlogo from "../../staticAssets/avlogo.png";
+import avlogo from "../../staticAssets/av-logo.png";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 
@@ -18,7 +18,7 @@ const Footer = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const callMe = () => window.location.href=('tel:07478659955');
+  const callMe = () => (window.location.href = "tel:07478659955");
   return (
     <div className="footer">
       <div className="columns">
@@ -37,10 +37,7 @@ const Footer = () => {
             />
             <h5 style={{ display: "inline-block", width: "100px" }}>About</h5>
           </div>
-          <p>
-            I offer freelance services in the intersection of digital marketing
-            and web development
-          </p>
+          <p>I offer freelance services in the intersection of digital marketing and web development</p>
         </div>
         <div className="footerCard">
           <h5>Links</h5>
@@ -58,21 +55,14 @@ const Footer = () => {
             &#9742;&#65039; 0747 865 9955
           </button>
           <button className="btnContact" onClick={handleClickOpen}>
-            &#128231;  E-mail me...
+            &#128231; E-mail me...
           </button>
         </div>
       </div>
       <div className="copyright">
-        <p>
-          Copyright &copy; {thisYear} Andras Vargyas t/as Andras Vargas. All
-          rights reserved.
-        </p>
+        <p>Copyright &copy; {thisYear} Andras Vargyas t/as Andras Vargas. All rights reserved.</p>
       </div>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-      >
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         {<Contact onClose={handleClose} />}
       </Dialog>
     </div>

@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.be96be16.css",
-    "main.js": "/static/js/main.190775fb.js",
+    "main.css": "/static/css/main.8e805bc8.css",
+    "main.js": "/static/js/main.a71c206f.js",
     "static/js/377.2ad750b3.chunk.js": "/static/js/377.2ad750b3.chunk.js",
-    "static/media/avlogo.png": "/static/media/avlogo.a79e6312a7680b3b1ac0.png",
+    "static/media/av-logo.png": "/static/media/av-logo.9d078f962bc9286416d7.png",
     "index.html": "/index.html",
-    "main.be96be16.css.map": "/static/css/main.be96be16.css.map",
-    "main.190775fb.js.map": "/static/js/main.190775fb.js.map",
+    "main.8e805bc8.css.map": "/static/css/main.8e805bc8.css.map",
+    "main.a71c206f.js.map": "/static/js/main.a71c206f.js.map",
     "377.2ad750b3.chunk.js.map": "/static/js/377.2ad750b3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.be96be16.css",
-    "static/js/main.190775fb.js"
+    "static/css/main.8e805bc8.css",
+    "static/js/main.a71c206f.js"
   ]
 }

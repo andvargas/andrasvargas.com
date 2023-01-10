@@ -1,23 +1,36 @@
 .Contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: #56001e;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #56001e;
 }
 .form {
-    /* background-color: #F3F0DC; */
-    
-    width: 40%;
-    min-width: 400px;
+  width: 40%;
+  min-width: 400px;
 }
 .container {
-    min-height: 50vh;
-    background-color: #F3F0DC;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 50vh;
+  background-color: #f3f0dc;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invalid input {
+  border: 1px solid #b40e0e;
+  background-color: #fddddd;
+}
+
+.invalid input:focus {
+  border-color: #ff8800;
+  background-color: #fbe8d2;
+}
+
+.errorText {
+  color: #b40e0e;
+  font-size: 0.5em;
+  font-weight: 800;
 }
