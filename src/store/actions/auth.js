@@ -1,6 +1,5 @@
 import axios from "../../axios-instance";
 import * as actionTypes from "./actionTypes";
-import { Navigate } from "react-router-dom";
 
 export const authStart = () => {
   return {
@@ -8,11 +7,12 @@ export const authStart = () => {
   };
 };
 
-export const authSuccess = (token, userId) => {
+export const authSuccess = (token, userId, company) => {
   return {
     type: actionTypes.AUTH_SUCCESS,
     token: token,
     userId: userId,
+    company: company,
   };
 };
 
@@ -56,12 +56,11 @@ export const auth = (email, password, isSignup) => {
     axios
       .post(url, authData)
       .then((response) => {
-        console.log(response.data);
         const expirationDate = new Date(response.data.expirationDate * 1000); //there is something weird going on with the expiration
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("expirationDate", expirationDate);
         localStorage.setItem("userId", response.data.user._id);
-        dispatch(authSuccess(response.data.token, response.data.user._id));
+        dispatch(authSuccess(response.data.token, response.data.user._id, response.data.user.company));
         dispatch(checkAuthTimeout(response.data.expirationDate));
       })
       .catch((e) => {

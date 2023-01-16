@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import "./App.css";
 import Contact from "./containers/Contact/Contact";
-import Auth from "./containers/Auth/AuthNew"; // change back to Auth/Auth, if the new one doesnt work
+import Auth from "./containers/Auth/Auth"; // change back to Auth/Auth, if the new one doesnt work
 import Dashboard from "./containers/Protected/Dashboard";
 import Logout from "./containers/Auth/Logout/Logout";
 import Homepage from "./containers/Homepage/Homepage";
@@ -42,7 +42,6 @@ const theme = createTheme({
 
 class App extends Component {
   componentDidMount() {
-    console.log(process.env.NODE_ENV);
     this.props.onTryAutosignup();
   }
   render() {

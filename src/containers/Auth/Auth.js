@@ -11,7 +11,6 @@ import Helmet from "react-helmet";
 
 const Auth = (props) => {
   const dispatch = useDispatch();
-  console.log("this is the new Auth.js");
   const [formState, setFormState] = useState({
     controls: {
       email: {
@@ -48,13 +47,10 @@ const Auth = (props) => {
   });
 
   const isAuthenticated = useSelector((state) => state.auth.token !== null);
-  console.log(isAuthenticated);
 
   const loading = useSelector((state) => state.auth.loading);
-  console.log(loading);
 
   const error = useSelector((state) => state.auth.error);
-  console.log(error);
 
   const checkValidity = (value, rules) => {
     let isValid = true;
@@ -103,8 +99,6 @@ const Auth = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     dispatch(actions.auth(formState.controls.email.value, formState.controls.password.value, formState.isSignup));
-    // this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
-    console.log("this.props.isAuthenticated");
   };
 
   const formElementsArray = [];
@@ -114,7 +108,6 @@ const Auth = (props) => {
       config: formState.controls[key],
     });
   }
-  console.log(formElementsArray);
   let form = (
     <form onSubmit={submitHandler}>
       <Helmet>
@@ -149,7 +142,6 @@ const Auth = (props) => {
       return { ...formState, isSignup: !prevState.isSignup };
     });
   };
-  console.log(formState);
 
   let errorMessage = null;
   if (error) {

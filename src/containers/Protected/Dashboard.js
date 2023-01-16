@@ -46,20 +46,19 @@ const useStyles = makeStyles((theme) => ({
 
 const Dashboard = () => {
   const classes = useStyles();
-  const user = useSelector((state) => state.auth.userId);
-  console.log(user);
-  const loggedInAs = user === "63bff9814bf09b0472ec30be" ? "Nigel" : "null";
+  const company = useSelector((state) => state.auth.company);
+  console.log(company);
 
   const [taskList, setTaskList] = useState([]);
 
   useEffect(() => {
-    axios.get("/activities").then((response) => {
+    axios.get("/activities/" + company).then((response) => {
       const d = new Date();
       const oneMonthAgo = new Date(d.getFullYear(), d.getMonth(), 1);
       //oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
       console.log(oneMonthAgo);
       const filteredTasks = response.data.filter((session) => {
-        return new Date(session.startDate) > oneMonthAgo && session.customer === loggedInAs;
+        return new Date(session.startDate) > oneMonthAgo;
       });
       setTaskList(filteredTasks);
     });
@@ -76,8 +75,8 @@ const Dashboard = () => {
             Dashboard (Beta)
           </Typography>
 
-          <Button color="inherit">
-            <Link to="/logout">Log Out</Link>
+          <Button component={Link} to="/logout" underline="none" color="inherit">
+            Log Out
           </Button>
         </Toolbar>
       </AppBar>
@@ -99,7 +98,7 @@ const Dashboard = () => {
               <AccordionDetails>
                 <Typography>
                   {session.tasksAccomplished.map((task) => {
-                    return task[1] ? <li>{task[2]}</li> : null;
+                    return task[1] ? <li key={task[0]}>{task[2]}</li> : null;
                   })}
                 </Typography>
               </AccordionDetails>
