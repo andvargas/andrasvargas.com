@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import "./App.css";
 import Contact from "./containers/Contact/Contact";
-import Auth from "./containers/Auth/Auth";
+import Auth from "./containers/Auth/AuthNew"; // change back to Auth/Auth, if the new one doesnt work
 import Dashboard from "./containers/Protected/Dashboard";
 import Logout from "./containers/Auth/Logout/Logout";
 import Homepage from "./containers/Homepage/Homepage";
@@ -42,46 +42,48 @@ const theme = createTheme({
 
 class App extends Component {
   componentDidMount() {
+    console.log(process.env.NODE_ENV);
     this.props.onTryAutosignup();
   }
   render() {
     // guests
     let routes = (
       <ScrollToTop>
-        <Switch>
-          <Route path="/about" component={Page} />
-          <Route path="/sample-page" id="620fd5525d188b70b7d8ece0" component={SamplePage}>
-            {/* <SamplePage id="620fd5525d188b70b7d8ece0" /> */}
-          </Route>
-          <Route path="/seo-tool">
-            <SamplePage id="627ea3aec4b9a602f772ba1b" />
-          </Route>
-          <Route path="/register" component={Auth} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/" component={Homepage} />
-          <Route path="/" component={Footer} />
-          <Redirect to="/" />
-        </Switch>
-
-        <Route path="/" component={Footer} />
+        <Routes>
+          <Route path="/about" element={<Page />} />
+          <Route path="/sample-page" element={<SamplePage id="620fd5525d188b70b7d8ece0" />} />
+          <Route path="/seo-tool" element={<SamplePage id="627ea3aec4b9a602f772ba1b" />} />
+          <Route path="/register" element={<Auth />} />
+          <Route path="/login" element={<Auth />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
       </ScrollToTop>
     );
     // users logged in
     if (this.props.isAuthenticated) {
       routes = (
-        <Switch>
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/logout" component={Logout} />
-          <Route path="/" component={Footer} />
-          <Route path="/" component={Homepage} />
-          <Redirect to="/" />
-        </Switch>
+        <ScrollToTop>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/sample-page" element={<SamplePage id="620fd5525d188b70b7d8ece0" />} />
+            <Route path="/seo-tool" element={<SamplePage id="627ea3aec4b9a602f772ba1b" />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/register" element={<Auth />} />
+            <Route path="/about" element={<Page />} />
+          </Routes>
+        </ScrollToTop>
       );
     }
     return (
       <ThemeProvider theme={theme}>
-        <div className="App">{routes}</div>
+        <div className="App">
+          {routes}
+          <Footer />
+        </div>
       </ThemeProvider>
     );
   }

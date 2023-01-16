@@ -8,7 +8,7 @@ import classes from "./NavBar.module.css";
 const NavBarSmall = (props) => (
   <ul>
     <Tooltip title="Homepage">
-      <NavLink activeClassName={classes.active} to="/" exact>
+      <NavLink style={({ isActive }) => (isActive ? { display: "none" } : undefined)} to="/" end>
         <Home color="primary" />
       </NavLink>
     </Tooltip>
@@ -19,19 +19,19 @@ const NavBarSmall = (props) => (
     </Tooltip>
     {props.isAuth ? (
       <Tooltip title="My Personal Dashboard">
-        <NavLink activeClassName={classes.active} to="/dashboard">
+        <NavLink style={({ isActive }) => (isActive ? { display: "none" } : undefined)} to="/dashboard">
           <SupervisedUserCircle color="primary" />
         </NavLink>
       </Tooltip>
     ) : (
       <Tooltip title="Login/Register">
-        <NavLink activeClassName={classes.active} to="/register">
+        <NavLink style={({ isActive }) => (isActive ? { display: "none" } : undefined)} to="/register">
           <AccountCircle color="primary" />
         </NavLink>
       </Tooltip>
     )}
     <Tooltip title="About Me">
-      <NavLink activeClassName={classes.active} to="/about">
+      <NavLink style={({ isActive }) => (isActive ? { display: "none" } : undefined)} to="/about">
         <HowToReg color="primary" />
       </NavLink>
     </Tooltip>

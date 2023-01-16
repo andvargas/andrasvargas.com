@@ -1,5 +1,10 @@
+#root {
+  position: relative;
+  min-height: 100vh;
+}
 .App {
   text-align: center;
+  padding-bottom: 250px;
 }
 
 .App-logo {
@@ -7,13 +12,13 @@
   pointer-events: none;
 }
 .headline {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   white-space: nowrap;
   font-size: 3vw;
 }
 
 .App-header {
-  background-color: #F3F0DC;
+  background-color: #f3f0dc;
   min-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -36,7 +41,7 @@ hr.animated {
   box-sizing: border-box;
 }
 .quote {
-  font-family:  Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  font-family: Calibri, "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
   font-style: italic;
   font-size: 2em;
   font-weight: 200;
@@ -60,4 +65,9 @@ body {
   .App-header {
     flex-direction: column;
   }
+}
+
+.error {
+  color: red;
+  font-weight: 900;
 }
