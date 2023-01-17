@@ -72,6 +72,7 @@ class App extends Component {
             <Route path="/contact" element={<Contact />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<Auth />} />
+            <Route path="/login" element={<Auth />} />
             <Route path="/about" element={<Page />} />
           </Routes>
         </ScrollToTop>
