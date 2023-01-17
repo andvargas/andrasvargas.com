@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Logo from "../../components/Logo/Logo";
 import NavBarSmall from "../../components/Navigation/NavBarSmall";
@@ -49,11 +50,13 @@ class Homepage extends Component {
           <h1 className="headline">ANDRAS VARGAS</h1>
         </header>
         <hr className="animated"></hr>
-        <Tooltip title="Login / REgister" placement="left-end">
-          <Fab color="primary" style={classes.login} href="/login">
-            <AccountCircle color="primary" style={classes.loginIcon} />
-          </Fab>
-        </Tooltip>
+        <Link to="/login">
+          <Tooltip title="Login / REgister" placement="left-end">
+            <Fab color="primary" style={classes.login}>
+              <AccountCircle color="primary" style={classes.loginIcon} />
+            </Fab>
+          </Tooltip>
+        </Link>
 
         <Modal show={this.state.modalIsOpen} closed={this.closeModal}>
           {<Contact close={this.closeModal} />}
