@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { AccountCircle, Home, Mail, SupervisedUserCircle, HowToReg } from "@material-ui/icons";
+import { AccountCircle, Fingerprint, Home, Mail, SupervisedUserCircle, HowToReg } from "@material-ui/icons";
 import Tooltip from "@material-ui/core/Tooltip";
 import classes from "./NavBar.module.css";
 
@@ -12,6 +12,7 @@ const NavBarSmall = (props) => (
         <Home color="primary" />
       </NavLink>
     </Tooltip>
+
     <Tooltip title="Contact Me">
       <NavLink onClick={props.contact} to="#" /* activeClassName={classes.active} to="/contact" */>
         <Mail color="primary" />

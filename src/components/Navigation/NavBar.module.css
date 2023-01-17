@@ -1,30 +1,30 @@
 .NavBar {
-    list-style: none;
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0;
-    margin-top: 4px;
-    height: 100%;
-
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin-top: 4px;
+  height: 100%;
 }
 .NavBarItem {
-    background-color: #56001e;
-    color: wheat;
-    text-decoration: none;
-    margin-left: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 20vw;
-    height: 65px;
-    box-sizing: border-box;
-    border: 1px solid black;
-    border-radius: 4px;
-    font-weight: 600;
+  background-color: #56001e;
+  color: wheat;
+  text-decoration: none;
+  margin-left: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 20vw;
+  height: 65px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-weight: 600;
 }
+
 .active {
-    display: none;
+  display: none;
 }

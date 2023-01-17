@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = () => {
   const classes = useStyles();
   const company = useSelector((state) => state.auth.company);
-  console.log(company);
 
   const [taskList, setTaskList] = useState([]);
 
@@ -55,8 +54,6 @@ const Dashboard = () => {
     axios.get("/activities/" + company).then((response) => {
       const d = new Date();
       const oneMonthAgo = new Date(d.getFullYear(), d.getMonth(), 1);
-      //oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-      console.log(oneMonthAgo);
       const filteredTasks = response.data.filter((session) => {
         return new Date(session.startDate) > oneMonthAgo;
       });
