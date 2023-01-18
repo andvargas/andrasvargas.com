@@ -14,6 +14,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Paper } from "@material-
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DisplayDate from "../../components/UI/DisplayDate";
 import Duration from "../../components/UI/Duration";
+import Helmet from "react-helmet";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     width: "90%",
+    padding: "20px",
   },
 }));
 
@@ -61,8 +63,14 @@ const Dashboard = () => {
     });
   }, []);
 
+  const summary = taskList.reduce((acc, curr) => acc + curr.duration, 0);
+
   return (
     <div className={classes.root}>
+      <Helmet>
+        <title>Andras V. | Dashboard</title>
+        <link rel="canonical" href={`${window.location.hostname}/dashboard`} />
+      </Helmet>
       <AppBar position="static" color="secondary">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -78,8 +86,11 @@ const Dashboard = () => {
         </Toolbar>
       </AppBar>
       <Paper elevation={3} className={classes.header}>
-        <h2>This is a list of tasks Andras was working on this month</h2>
-        <p>It has a number of {taskList ? taskList.length : 0} sessions (click for details). </p>
+        <Typography variant="h6">This is a list of tasks Andras was working on this month</Typography>
+        <Typography variant="body1">
+          It has a number of {taskList ? taskList.length : 0} sessions (Start/Duration/Project - click for details).<br></br> Total hours spent this
+          month: <Duration ms={summary} />
+        </Typography>
       </Paper>
       <div className={classes.sessions}>
         {taskList.map((session) => {

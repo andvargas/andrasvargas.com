@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import "./App.css";
 import Contact from "./containers/Contact/Contact";
-import Auth from "./containers/Auth/Auth"; // change back to Auth/Auth, if the new one doesnt work
+import Auth from "./containers/Auth/Auth";
 import Dashboard from "./containers/Protected/Dashboard";
 import Logout from "./containers/Auth/Logout/Logout";
 import Homepage from "./containers/Homepage/Homepage";
@@ -14,6 +14,7 @@ import Page from "./containers/Page/Page";
 import SamplePage from "./containers/Page/SamplePage";
 import Footer from "./containers/Footer/Footer";
 import ScrollToTop from "./components/UI/ScrollToTop";
+import AddPost from "./containers/Page/AddPost";
 
 const theme = createTheme({
   palette: {
@@ -52,11 +53,13 @@ class App extends Component {
           <Route path="/about" element={<Page />} />
           <Route path="/sample-page" element={<SamplePage id="620fd5525d188b70b7d8ece0" />} />
           <Route path="/seo-tool" element={<SamplePage id="627ea3aec4b9a602f772ba1b" />} />
+          <Route path="/andrasvargas-com" element={<SamplePage id="63c6f199d17f1a3a8d16c3a4" />} />
           <Route path="/register" element={<Auth />} />
           <Route path="/login" element={<Auth />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/" element={<Homepage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/add-post" element={<AddPost />} />  remove this when live */}
         </Routes>
       </ScrollToTop>
     );
@@ -68,12 +71,15 @@ class App extends Component {
             <Route path="/" element={<Homepage />} />
             <Route path="/sample-page" element={<SamplePage id="620fd5525d188b70b7d8ece0" />} />
             <Route path="/seo-tool" element={<SamplePage id="627ea3aec4b9a602f772ba1b" />} />
+            <Route path="/andrasvargas-com" element={<SamplePage id="63c6f199d17f1a3a8d16c3a4" />} />
+
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<Auth />} />
             <Route path="/login" element={<Auth />} />
             <Route path="/about" element={<Page />} />
+            <Route path="/add-post" element={<AddPost />} />
           </Routes>
         </ScrollToTop>
       );

@@ -94,3 +94,6 @@ Implement knowledge learnt from Max Section 16 Form Validation - Contact.js
 
 10 January
 Fixed form validation
+
+18 Jan v1.1
+Create form component for adding a page - started
