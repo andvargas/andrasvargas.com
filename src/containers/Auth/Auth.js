@@ -93,7 +93,21 @@ const Auth = (props) => {
         touched: true,
       },
     };
-    setFormState({ controls: updatedControls });
+    setFormState({ ...formState, controls: updatedControls });
+  };
+
+  const inputBlurHandler = (event, controlName) => {
+    console.log("Input Blurred");
+    const updatedControls = {
+      ...formState.controls,
+      [controlName]: {
+        ...formState.controls[controlName],
+        value: event.target.value,
+        valid: checkValidity(event.target.value, formState.controls[controlName].validation),
+        touched: true,
+      },
+    };
+    setFormState({ ...formState, controls: updatedControls });
   };
 
   const submitHandler = (event) => {
@@ -114,7 +128,7 @@ const Auth = (props) => {
         <title>Register/Log In</title>
         <link rel="canonical" href={window.location.hostname + "/register"} />
       </Helmet>
-      <h2>{formState.isSignup ? "Sign Up" : "Log In"}</h2>
+      <h2>{formState.isSignup ? "Register" : "Log In"}</h2>
       {formElementsArray.map((formElement) => (
         <Input
           key={formElement.id}
@@ -125,6 +139,7 @@ const Auth = (props) => {
           shouldValidate={formElement.config.validation}
           touched={formElement.config.touched}
           changed={(event) => inputChangedHandler(event, formElement.id)}
+          onBlur={(event) => inputBlurHandler(event, formElement.id)}
         />
       ))}
       <Button variant="contained" color="secondary" type="submit">
@@ -157,7 +172,7 @@ const Auth = (props) => {
       <div className="App-header">
         {errorMessage}
         {form}
-        <Button clicked={switchAuthModeHandler}>Switch to {formState.isSignup ? "Log In" : "Sign Up"}</Button>
+        <Button clicked={switchAuthModeHandler}>Switch to {formState.isSignup ? "Log In" : "Register"}</Button>
       </div>
       <hr className="animated"></hr>
       <NavBarSmall />

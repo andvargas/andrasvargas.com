@@ -59,7 +59,7 @@ class App extends Component {
           <Route path="/contact" element={<Contact />} />
           <Route path="/" element={<Homepage />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="/add-post" element={<AddPost />} />  remove this when live */}
+          <Route path="/add-post" element={<AddPost />} /> {/*  remove this when live */}
         </Routes>
       </ScrollToTop>
     );

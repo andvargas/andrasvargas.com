@@ -67,6 +67,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 ### Deployment
 
+To deploy the project to Netlify, just have to commit and push to GITHUB
+
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify
@@ -97,3 +99,4 @@ Fixed form validation
 
 18 Jan v1.1
 Create form component for adding a page - started
+Fixed: glitch in Auth.js - av.com. where the registration switched randomly to login.

@@ -51,7 +51,7 @@ class Homepage extends Component {
         </header>
         <hr className="animated"></hr>
         <Link to="/login">
-          <Tooltip title="Login / REgister" placement="left-end">
+          <Tooltip title="Login / Register" placement="left-end">
             <Fab color="primary" style={classes.login}>
               <AccountCircle color="primary" style={classes.loginIcon} />
             </Fab>
