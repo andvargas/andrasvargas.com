@@ -13,6 +13,7 @@ import Contact from "../Contact/Contact";
 import Fab from "@material-ui/core/Fab";
 import { AccountCircle } from "@material-ui/icons";
 import Tooltip from "@material-ui/core/Tooltip";
+import { WhatsApp } from "@material-ui/icons";
 
 const classes = {
   login: {
@@ -21,6 +22,14 @@ const classes = {
     top: "20px",
   },
   loginIcon: {
+    color: "white",
+  },
+  waIcon: {},
+  wa: {
+    position: "absolute",
+    right: "20px",
+    top: "90vh",
+    backgroundColor: "rgb(0	208	92)",
     color: "white",
   },
 };
@@ -57,6 +66,18 @@ class Homepage extends Component {
             </Fab>
           </Tooltip>
         </Link>
+        {/* <a href="https://wa.me/447478659955" target="_blank" rel="noreferrer">
+          <Tooltip title="Send WhatsApp Message (will open your app)" placement="left-end">
+            <Fab style={classes.wa}>
+              <WhatsApp />
+            </Fab>
+          </Tooltip>
+        </a> */}
+        <Tooltip title="Send WhatsApp Message (will open your app)" placement="left-end">
+          <Fab color="wa" href="https://wa.me/447478659955" target="_blank" rel="noreferrer" style={classes.wa}>
+            <WhatsApp />
+          </Fab>
+        </Tooltip>
 
         <Modal show={this.state.modalIsOpen} closed={this.closeModal}>
           {<Contact close={this.closeModal} />}

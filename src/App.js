@@ -24,6 +24,9 @@ const theme = createTheme({
     secondary: {
       main: "#56001e",
     },
+    wa: {
+      color: "red",
+    },
   },
   typography: {
     fontFamily: ["sans-serif", "Roboto"],

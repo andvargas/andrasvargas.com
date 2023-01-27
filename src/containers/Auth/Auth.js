@@ -97,7 +97,6 @@ const Auth = (props) => {
   };
 
   const inputBlurHandler = (event, controlName) => {
-    console.log("Input Blurred");
     const updatedControls = {
       ...formState.controls,
       [controlName]: {
@@ -139,7 +138,7 @@ const Auth = (props) => {
           shouldValidate={formElement.config.validation}
           touched={formElement.config.touched}
           changed={(event) => inputChangedHandler(event, formElement.id)}
-          onBlur={(event) => inputBlurHandler(event, formElement.id)}
+          blurred={(event) => inputBlurHandler(event, formElement.id)}
         />
       ))}
       <Button variant="contained" color="secondary" type="submit">
