@@ -73,7 +73,7 @@ class Homepage extends Component {
             </Fab>
           </Tooltip>
         </a> */}
-        <Tooltip title="Send WhatsApp Message (will open your app)" placement="left-end">
+        <Tooltip title="Send me a WhatsApp Message (will open your app)" placement="left-end">
           <Fab color="wa" href="https://wa.me/447478659955" target="_blank" rel="noreferrer" style={classes.wa}>
             <WhatsApp />
           </Fab>

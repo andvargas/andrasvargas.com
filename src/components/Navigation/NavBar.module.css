@@ -1,12 +1,12 @@
-.NavBar {
+.navBar {
+  background-color: #56001e;
   list-style: none;
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 0;
   margin-top: 4px;
-  height: 100%;
 }
 .NavBarItem {
   background-color: #56001e;
@@ -27,4 +27,10 @@
 
 .active {
   display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .navBar {
+    flex-direction: column;
+  }
 }

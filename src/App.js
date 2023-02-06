@@ -15,21 +15,24 @@ import SamplePage from "./containers/Page/SamplePage";
 import Footer from "./containers/Footer/Footer";
 import ScrollToTop from "./components/UI/ScrollToTop";
 import AddPost from "./containers/Page/AddPost";
+import Service1 from "./containers/Service1";
 
 const theme = createTheme({
   palette: {
     primary: {
       main: "#ff6600",
+      contrastText: "white",
     },
     secondary: {
       main: "#56001e",
+      contrastText: "white",
     },
     wa: {
       color: "red",
     },
   },
   typography: {
-    fontFamily: ["sans-serif", "Roboto"],
+    fontFamily: ["Montserrat", "sans-serif", "Roboto"],
     h1: {
       fontSize: 30,
       fontWeight: "bold",
@@ -63,6 +66,7 @@ class App extends Component {
           <Route path="/" element={<Homepage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-post" element={<AddPost />} /> {/*  remove this when live */}
+          <Route path="/technical-seo-audit-service" element={<Service1 />} />
         </Routes>
       </ScrollToTop>
     );

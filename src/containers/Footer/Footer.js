@@ -43,6 +43,7 @@ const Footer = () => {
           <h5>Links</h5>
           <Link to="/">Homepage</Link>
           <Link to="/about">About</Link>
+          <Link to="/technical-seo-audit-service">Technical SEO</Link>
         </div>
         <div className="footerCard">
           <h5>Social</h5>
