@@ -1,7 +1,7 @@
 # Technical SEO Site Checkup
 
-Welcome to my Technical SEO Site Checkup service! With my decade long expertise in digital marketing, I'm here to help you improve your website's ranking on major search engines. I use cutting-edge audit tools to analyze your website and highlight all the critical issues that need to be fixed.
-For just **£75.00** (for a website of not more then 20 pages), I can schedule your site checkup within the next 5 working days. The process usually takes a couple of hours and covers a range of factors that affect your site's SEO performance. My report will provide feedback on the following areas:
+Welcome to my Technical SEO Audit service! With my decade-long expertise in digital marketing and up-to-date web developer knowledge, I'm here to help you improve your website's ranking on major search engines. I use cutting-edge audit tools to analyze your website and highlight all the critical issues that need to be fixed.
+For just **£75.00** (for a website of not more then 50 pages), I can schedule your site checkup within the next 5 working days. The process usually takes a couple of hours and covers a range of factors that affect your site's SEO performance. My report will provide feedback on the following areas:
 
 - Back-end factors such as hosting and indexing
 - Front-end factors such as content, keywords, and metadata

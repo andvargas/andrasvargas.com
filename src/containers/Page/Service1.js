@@ -1,10 +1,11 @@
 import { Modal, Button, Container, Typography } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import NavBar from "../components/Navigation/NavBar";
+import NavBar from "../../components/Navigation/NavBar";
 import ReactMarkdown from "react-markdown";
 import { makeStyles } from "@material-ui/core/styles";
 import { PictureAsPdf, ContactMailOutlined } from "@material-ui/icons";
-import ContactForm from "../components/contactForm";
+import ContactForm from "../../components/contactForm";
+import Helmet from "react-helmet";
 
 const useStyles = makeStyles((theme) => ({
   textToLeft: {
@@ -54,6 +55,15 @@ const Service1 = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>Technical Seo Site Checkup | Service by Andras Vargas</title>
+        <link rel="canonical" href={`${window.location.hostname}/technical-seo-audit-service`} />
+        <meta
+          name="description"
+          content="My Technical SEO Site Checkup is an SEO Audit Service performed on your website to help boost your site's SEO performance."
+        />
+        <meta name="author" content="Andras Vargas" />
+      </Helmet>
       <Modal open={open} onClose={formHandleClose} className={classes.modal}>
         <div className={classes.paper}>
           <ContactForm onClose={formHandleClose} />

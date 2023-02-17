@@ -101,6 +101,9 @@ Fixed form validation
 Create form component for adding a page - started
 Fixed: glitch in Auth.js - av.com. where the registration switched randomly to login.
 
+15 Feb.
+Changed the text of the /Users/andrasvargyas/Sites/Andrasvargas.com/andrasvargas-frontend/public/service-seo-audit.md file.
+
 ## To Fix
 
 /login shuld default to Log In, and /register to Register

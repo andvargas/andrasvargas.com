@@ -15,7 +15,7 @@ import SamplePage from "./containers/Page/SamplePage";
 import Footer from "./containers/Footer/Footer";
 import ScrollToTop from "./components/UI/ScrollToTop";
 import AddPost from "./containers/Page/AddPost";
-import Service1 from "./containers/Service1";
+import Service1 from "./containers/Page/Service1";
 
 const theme = createTheme({
   palette: {
