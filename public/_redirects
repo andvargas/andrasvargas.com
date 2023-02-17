@@ -1,3 +1,4 @@
 # Redirects from what the browser requests to what we serve - this is for Netlify
 
-/\* / 200
+<!-- prettier-ignore -->
+/* / 200
