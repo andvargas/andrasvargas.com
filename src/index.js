@@ -37,3 +37,13 @@ ReactDOM.render(app, document.getElementById("root"));
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// This is for testing elements
+/* window.onclick = function (e) {
+  var parent = e.srcElement.closest("button");
+  if (parent) {
+    console.log(parent.id);
+  } else {
+    console.log(e.srcElement.closest("a").id);
+  }
+}; */
