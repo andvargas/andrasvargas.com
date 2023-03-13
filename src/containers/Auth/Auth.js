@@ -10,6 +10,7 @@ import NavBarSmall from "../../components/Navigation/NavBarSmall";
 import Helmet from "react-helmet";
 
 const Auth = (props) => {
+  console.log(props);
   const dispatch = useDispatch();
   const [formState, setFormState] = useState({
     controls: {
@@ -43,7 +44,7 @@ const Auth = (props) => {
         touched: false,
       },
     },
-    isSignup: true,
+    isSignup: props.isSignup,
   });
 
   const isAuthenticated = useSelector((state) => state.auth.token !== null);
@@ -111,7 +112,8 @@ const Auth = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(actions.auth(formState.controls.email.value, formState.controls.password.value, formState.isSignup));
+    /* dispatch(actions.auth(formState.controls.email.value, formState.controls.password.value, formState.isSignup)); */
+    dispatch(actions.auth(formState.controls.email.value, formState.controls.password.value, props.isSignup));
   };
 
   const formElementsArray = [];

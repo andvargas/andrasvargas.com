@@ -44,6 +44,7 @@ const Footer = () => {
           <Link to="/">Homepage</Link>
           <Link to="/about">About</Link>
           <Link to="/technical-seo-audit-service">Technical SEO</Link>
+          <a href="https://floatingpint.com/seo-tool/">SEO Metadata Tool</a>
         </div>
         <div className="footerCard">
           <h5>Social</h5>

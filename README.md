@@ -104,6 +104,7 @@ Fixed: glitch in Auth.js - av.com. where the registration switched randomly to l
 15 Feb.
 Changed the text of the /Users/andrasvargyas/Sites/Andrasvargas.com/andrasvargas-frontend/public/service-seo-audit.md file.
 
-## To Fix
+13 March
+Implemented a different path for both login and register: /login defaults to Log In, and /register to Register
 
-/login shuld default to Log In, and /register to Register
+## To Fix

@@ -60,8 +60,8 @@ class App extends Component {
           <Route path="/sample-page" element={<SamplePage id="620fd5525d188b70b7d8ece0" />} />
           <Route path="/seo-tool" element={<SamplePage id="627ea3aec4b9a602f772ba1b" />} />
           <Route path="/andrasvargas-com" element={<SamplePage id="63c6f199d17f1a3a8d16c3a4" />} />
-          <Route path="/register" element={<Auth />} />
-          <Route path="/login" element={<Auth />} />
+          <Route path="/register" element={<Auth isSignup={true} />} />
+          <Route path="/login" element={<Auth isSignup={false} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/" element={<Homepage />} />
           <Route path="/dashboard" element={<Dashboard />} />
