@@ -67,7 +67,7 @@ class Homepage extends Component {
           </Tooltip>
         </Link>
         <Tooltip title="Send me a WhatsApp Message (will open your app)" placement="left-end">
-          <Fab color="wa" href="https://wa.me/447478659955" target="_blank" rel="noreferrer" style={classes.wa}>
+          <Fab color="inherit" href="https://wa.me/447478659955" target="_blank" rel="noreferrer" style={classes.wa}>
             <WhatsApp />
           </Fab>
         </Tooltip>
@@ -84,6 +84,7 @@ class Homepage extends Component {
         <section id="portf">
           <PortfolioItems id="portf" color="primary" clicked={this.showModal} />
         </section>
+        {/* <a href="#internal-user">internal-user</a> click this link to add user to GA4 Internals*/}
       </div>
     );
   }

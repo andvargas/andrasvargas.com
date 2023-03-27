@@ -1,5 +1,5 @@
 import { Box, Button, Paper, TextField, Typography } from "@material-ui/core";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { SaveOutlined } from "@material-ui/icons";
 import axios from "../../axios-instance";
@@ -33,27 +33,29 @@ const AddPost = () => {
   const pathInputRef = useRef();
   const bodyInputRef = useRef();
   const resourceBoxInputRef = useRef();
+  const [formInputs, setFormInputs] = useState({});
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    let enteredValues = {
+    setFormInputs({
       title: titleInputRef.current.value,
       abstract: abstractInputRef.current.value,
       path: pathInputRef.current.value,
       body: bodyInputRef.current.value,
       resourceBox: resourceBoxInputRef.current.value,
-    };
-    console.log(enteredValues);
+    });
+    console.log(formInputs);
     axios
-      .post("/content/add", enteredValues)
+      .post("/content/add", formInputs)
       .then((resp) => {
         console.log(resp);
+        setFormInputs({});
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  console.log("Need to fix form to reset after submit");
+  console.log("Need to fix form to reset after submit - still not working");
   return (
     <Box className={classes.root}>
       <Paper className={classes.form} variant="outlined" component={"form"} onSubmit={formSubmitHandler}>

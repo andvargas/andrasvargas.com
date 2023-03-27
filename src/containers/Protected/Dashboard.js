@@ -80,6 +80,9 @@ const Dashboard = () => {
             Dashboard (Beta)
           </Typography>
 
+          {/* <Button component={Link} to="/add-post" underline="none" color="inherit">
+            Test
+          </Button> */}
           <Button component={Link} to="/logout" underline="none" color="inherit">
             Log Out
           </Button>

@@ -16,6 +16,7 @@ import Footer from "./containers/Footer/Footer";
 import ScrollToTop from "./components/UI/ScrollToTop";
 import AddPost from "./containers/Page/AddPost";
 import Service1 from "./containers/Page/Service1";
+import Admin from "./containers/Admin/Admin";
 
 const theme = createTheme({
   palette: {
@@ -65,7 +66,7 @@ class App extends Component {
           <Route path="/contact" element={<Contact />} />
           <Route path="/" element={<Homepage />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/add-post" element={<AddPost />} /> {/*  remove this when live */}
+          {/*<Route path="/add-post" element={<AddPost />} />   remove this when live */}
           <Route path="/technical-seo-audit-service" element={<Service1 />} />
         </Routes>
       </ScrollToTop>
@@ -75,6 +76,7 @@ class App extends Component {
       routes = (
         <ScrollToTop>
           <Routes>
+            <Route path="/admin" element={<Admin />} />
             <Route path="/" element={<Homepage />} />
             <Route path="/sample-page" element={<SamplePage id="620fd5525d188b70b7d8ece0" />} />
             <Route path="/seo-tool" element={<SamplePage id="627ea3aec4b9a602f772ba1b" />} />
@@ -87,6 +89,7 @@ class App extends Component {
             <Route path="/login" element={<Auth />} />
             <Route path="/about" element={<Page />} />
             <Route path="/add-post" element={<AddPost />} />
+            <Route path="/technical-seo-audit-service" element={<Service1 />} />
           </Routes>
         </ScrollToTop>
       );
