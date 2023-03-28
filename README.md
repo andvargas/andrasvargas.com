@@ -107,4 +107,9 @@ Changed the text of the /Users/andrasvargyas/Sites/Andrasvargas.com/andrasvargas
 13 March
 Implemented a different path for both login and register: /login defaults to Log In, and /register to Register
 
+28 March
+Finalised Navigation bar, and added to Page template
+Changed Page template design
+Added a new page GA4 - GTM
+
 ## To Fix

@@ -1,13 +1,14 @@
-import { AppBar, Container, Grid, IconButton, Paper, Toolbar, Typography } from "@material-ui/core";
+import { Container, Grid, Paper } from "@material-ui/core";
+//import { AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import axios from "../../axios-instance";
 import ReactMarkdown from "react-markdown";
-
+import NavBar from "../../components/Navigation/NavBar";
 import Helmet from "react-helmet";
 import { makeStyles } from "@material-ui/core/styles";
-import { MoreVert, Menu, NoteAdd } from "@material-ui/icons";
+//import { MoreVert, Menu, NoteAdd } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "1.8",
   },
   abstract: {
-    fontSize: "1.2em",
+    fontSize: "1em",
     fontWeight: "bold",
   },
   cont: {
@@ -46,6 +47,16 @@ const useStyles = makeStyles((theme) => ({
   text: {
     textAlign: "left",
     lineHeight: "28px",
+  },
+  body: {
+    fontSize: "inherit",
+    "& pre": {
+      color: "white",
+      fontSize: "small",
+      whiteSpace: "pre-wrap",
+      backgroundColor: "grey",
+      padding: "4px",
+    },
   },
 }));
 
@@ -59,7 +70,7 @@ const SamplePage = (props) => {
   const userType = useSelector((state) => state.auth.userType);
   console.log(userType);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -77,13 +88,15 @@ const SamplePage = (props) => {
     resourceBox: data.resourceBox,
     body: data.body,
   };
+
   return (
     <div>
       <Helmet>
         <title>{content.title + " | andrasvargas.com"}</title>
-        <link rel="canonical" href={`${window.location.hostname}/sample-page`} />
+        <link rel="canonical" href={`${window.location.hostname}/${content.title}`} />
       </Helmet>
-      <AppBar position="static" className={classes.root}>
+      <NavBar />
+      {/* <AppBar position="static" className={classes.root}>
         <Toolbar className={classes.toolbar}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
             <Menu />
@@ -101,16 +114,23 @@ const SamplePage = (props) => {
             <MoreVert />
           </IconButton>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <Container className={classes.cont} maxWidth="md">
         <Grid container spacing={3}>
+          <h1>{content.title}</h1>
           <Grid item xs={3}>
             <Paper className={classes.paper}>{isLoading ? <p>Loading...</p> : <ReactMarkdown>{content.resourceBox}</ReactMarkdown>}</Paper>
           </Grid>
           <Grid item xs={9}>
             <Paper className={classes.paper}>
               {isLoading ? <p>Loading...</p> : <ReactMarkdown className={classes.abstract}>{content.abstract}</ReactMarkdown>}
-              {isLoading ? <p>Loading...</p> : <ReactMarkdown>{content.body}</ReactMarkdown>}
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
+                <ReactMarkdown className={classes.body} components={{ img: ({ node, ...props }) => <img style={{ maxWidth: "100%" }} {...props} /> }}>
+                  {content.body}
+                </ReactMarkdown>
+              )}
             </Paper>
           </Grid>
         </Grid>
