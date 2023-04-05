@@ -112,4 +112,10 @@ Finalised Navigation bar, and added to Page template
 Changed Page template design
 Added a new page GA4 - GTM
 
+5 April
+Fixed login issue when changing from login to register and vice versa
+
 ## To Fix
+
+Dashboard.js
+The Task list doesn't have a unique key (Seems like it was a false positive, as now it works)

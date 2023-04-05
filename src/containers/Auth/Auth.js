@@ -10,7 +10,6 @@ import NavBarSmall from "../../components/Navigation/NavBarSmall";
 import Helmet from "react-helmet";
 
 const Auth = (props) => {
-  console.log(props);
   const dispatch = useDispatch();
   const [formState, setFormState] = useState({
     controls: {
@@ -113,7 +112,13 @@ const Auth = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     /* dispatch(actions.auth(formState.controls.email.value, formState.controls.password.value, formState.isSignup)); */
-    dispatch(actions.auth(formState.controls.email.value, formState.controls.password.value, props.isSignup));
+    dispatch(actions.auth(formState.controls.email.value, formState.controls.password.value, formState.isSignup));
+  };
+
+  const switchAuthModeHandler = () => {
+    setFormState((prevState) => {
+      return { ...formState, isSignup: !prevState.isSignup };
+    });
   };
 
   const formElementsArray = [];
@@ -152,12 +157,6 @@ const Auth = (props) => {
   if (loading) {
     form = <CircularProgress />;
   }
-
-  const switchAuthModeHandler = () => {
-    setFormState((prevState) => {
-      return { ...formState, isSignup: !prevState.isSignup };
-    });
-  };
 
   let errorMessage = null;
   if (error) {
