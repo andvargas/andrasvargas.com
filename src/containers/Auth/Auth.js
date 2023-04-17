@@ -128,11 +128,13 @@ const Auth = (props) => {
       config: formState.controls[key],
     });
   }
+  const canonicalURL = formState.isSignup ? "/register" : "/login";
+
   let form = (
     <form onSubmit={submitHandler}>
       <Helmet>
         <title>Register/Log In</title>
-        <link rel="canonical" href={window.location.hostname + "/register"} />
+        <link rel="canonical" href={window.location.hostname + canonicalURL} />
       </Helmet>
       <h2>{formState.isSignup ? "Register" : "Log In"}</h2>
       {formElementsArray.map((formElement) => (

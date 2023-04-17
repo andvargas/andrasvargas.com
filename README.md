@@ -119,3 +119,6 @@ Fixed login issue when changing from login to register and vice versa
 
 Dashboard.js
 The Task list doesn't have a unique key (Seems like it was a false positive, as now it works)
+
+Login doesnt work, but still looks like im logged in
+https://api.andrasvargas.com/activities/62aae362b24af1027d49c557
