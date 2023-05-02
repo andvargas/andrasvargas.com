@@ -58,7 +58,8 @@ class App extends Component {
       <ScrollToTop>
         <Routes>
           <Route path="/how-to-exclude-myself-from-google-analytics-4" element={<SamplePage id="6421bcb28758c50462743a98" />} />
-          <Route path="/about" element={<Page />} />
+          <Route path="/about" element={<SamplePage id="645146fb2b35a2a334735e14" />} />
+          <Route path="/ga4-implementation-service" element={<SamplePage id="645141da2b35a2a334735df5" />} />
           <Route path="/sample-page" element={<SamplePage id="620fd5525d188b70b7d8ece0" />} />
           <Route path="/seo-tool" element={<SamplePage id="627ea3aec4b9a602f772ba1b" />} />
           <Route path="/andrasvargas-com" element={<SamplePage id="63c6f199d17f1a3a8d16c3a4" />} />
@@ -80,6 +81,7 @@ class App extends Component {
           <Routes>
             <Route path="/admin" element={<Admin />} />
             <Route path="/" element={<Homepage />} />
+            <Route path="/ga4-implementation-service" element={<SamplePage id="645141da2b35a2a334735df5" />} />
             <Route path="/how-to-exclude-myself-from-google-analytics-4" element={<SamplePage id="6421bcb28758c50462743a98" />} />
             <Route path="/sample-page" element={<SamplePage id="620fd5525d188b70b7d8ece0" />} />
             <Route path="/seo-tool" element={<SamplePage id="627ea3aec4b9a602f772ba1b" />} />
@@ -90,7 +92,7 @@ class App extends Component {
             <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<Auth />} />
             <Route path="/login" element={<Auth />} />
-            <Route path="/about" element={<Page />} />
+            <Route path="/about" element={<SamplePage id="645146fb2b35a2a334735e14" />} />
             <Route path="/add-post" element={<AddPost />} />
             <Route path="/technical-seo-audit-service" element={<Service1 />} />
           </Routes>
