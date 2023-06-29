@@ -2,10 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 //import classes from "./NavBar.module.css";
 import avLogo from "../../staticAssets/avlogo-white.png";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 
 import NavBarItem from "./NavBarItem2";
-// import { SupervisedUserCircle, Home, AccountCircle } from "@material-ui/icons";
 
 const useStyles = makeStyles({
   root: {

@@ -1,9 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { AccountCircle, Fingerprint, Home, Mail, SupervisedUserCircle, HowToReg } from "@material-ui/icons";
-import Tooltip from "@material-ui/core/Tooltip";
-import classes from "./NavBar.module.css";
+import { AccountCircle, Home, Mail, SupervisedUserCircle, HowToReg } from "@mui/icons-material";
+import Tooltip from "@mui/material/Tooltip";
 
 const NavBarSmall = (props) => (
   <ul>

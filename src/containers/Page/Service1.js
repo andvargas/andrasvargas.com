@@ -1,9 +1,9 @@
-import { Modal, Button, Container, Typography } from "@material-ui/core";
+import { Modal, Button, Container, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/Navigation/NavBar";
 import ReactMarkdown from "react-markdown";
-import { makeStyles } from "@material-ui/core/styles";
-import { PictureAsPdf, ContactMailOutlined } from "@material-ui/icons";
+import { makeStyles } from "@mui/styles";
+import { PictureAsPdf, ContactMailOutlined } from "@mui/icons-material";
 import ContactForm from "../../components/contactForm";
 import Helmet from "react-helmet";
 

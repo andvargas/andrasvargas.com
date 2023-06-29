@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import Dialog from "@material-ui/core/Dialog";
+import Dialog from "@mui/material/Dialog";
 import Contact from "../Contact/Contact";
 import avlogo from "../../staticAssets/av-logo.png";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({

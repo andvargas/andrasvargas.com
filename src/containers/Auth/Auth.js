@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 import Button from "../../components/UI/Button/Button";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import Input from "../../components/UI/Input/Input";
 import * as actions from "../../store/actions/index";
 import NavBarSmall from "../../components/Navigation/NavBarSmall";

@@ -2,16 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import { makeStyles } from "@mui/styles";
+import { AppBar, Toolbar, Typography, Button, IconButton, Accordion, AccordionDetails, AccordionSummary, Paper } from "@mui/material";
+// import Toolbar from "@material-ui/core/Toolbar";
+// import Typography from "@material-ui/core/Typography";
+// import Button from "@material-ui/core/Button";
+// import IconButton from "@material-ui/core/IconButton";
+import { Menu, ExpandMore } from "@mui/icons-material";
 import axios from "../../axios-instance";
-import { Accordion, AccordionDetails, AccordionSummary, Paper } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DisplayDate from "../../components/UI/DisplayDate";
 import Duration from "../../components/UI/Duration";
 import Helmet from "react-helmet";
@@ -74,7 +72,7 @@ const Dashboard = () => {
       <AppBar position="static" color="secondary">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+            <Menu />
           </IconButton>
           <Typography variant="h5" className={classes.title}>
             Dashboard (Beta)
@@ -99,7 +97,7 @@ const Dashboard = () => {
         {taskList.map((session) => {
           return (
             <Accordion className={classes.acc}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+              <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1a-content" id="panel1a-header">
                 <Typography>
                   <DisplayDate date={session.startDate} />
                   <Duration ms={session.duration} />

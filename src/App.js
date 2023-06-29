@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Routes } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { createTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./App.css";
 import Contact from "./containers/Contact/Contact";
 import Auth from "./containers/Auth/Auth";
@@ -10,7 +10,7 @@ import Dashboard from "./containers/Protected/Dashboard";
 import Logout from "./containers/Auth/Logout/Logout";
 import Homepage from "./containers/Homepage/Homepage";
 import * as actions from "./store/actions/index";
-import Page from "./containers/Page/Page";
+// import Page from "./containers/Page/Page";
 import SamplePage from "./containers/Page/SamplePage";
 import Footer from "./containers/Footer/Footer";
 import ScrollToTop from "./components/UI/ScrollToTop";

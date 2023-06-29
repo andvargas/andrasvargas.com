@@ -10,10 +10,9 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import Modal from "../../components/UI/Modal/Modal";
 import Backdrop from "../../components/UI/Backdrop/BackDrop";
 import Contact from "../Contact/Contact";
-import Fab from "@material-ui/core/Fab";
-import { AccountCircle } from "@material-ui/icons";
-import Tooltip from "@material-ui/core/Tooltip";
-import { WhatsApp } from "@material-ui/icons";
+import Fab from "@mui/material/Fab";
+import { AccountCircle, WhatsApp } from "@mui/icons-material";
+import Tooltip from "@mui/material/Tooltip";
 
 const classes = {
   login: {

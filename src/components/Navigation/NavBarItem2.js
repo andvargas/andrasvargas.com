@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { styled } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
 //import classes from "./NavBar.module.css";

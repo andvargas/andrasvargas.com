@@ -1,7 +1,7 @@
-import { Box, Button, Paper, TextField, Typography } from "@material-ui/core";
+import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import React, { useRef, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { SaveOutlined } from "@material-ui/icons";
+import { makeStyles } from "@mui/styles";
+import SaveOutlined from "@mui/icons-material/SaveOutlined";
 import axios from "../../axios-instance";
 
 const useStyles = makeStyles((theme) => ({

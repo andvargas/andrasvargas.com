@@ -1,5 +1,4 @@
-import { Container, Grid, Paper } from "@material-ui/core";
-//import { AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
+import { Container, Grid, Paper } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
@@ -7,8 +6,7 @@ import axios from "../../axios-instance";
 import ReactMarkdown from "react-markdown";
 import NavBar from "../../components/Navigation/NavBar";
 import Helmet from "react-helmet";
-import { makeStyles } from "@material-ui/core/styles";
-//import { MoreVert, Menu, NoteAdd } from "@material-ui/icons";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
