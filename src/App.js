@@ -97,6 +97,7 @@ class App extends Component {
             <Route path="/about" element={<SamplePage id="645146fb2b35a2a334735e14" />} />
             <Route path="/add-post" element={<AddPost />} />
             <Route path="/technical-seo-audit-service" element={<Service1 />} />
+            <Route path="/chat-gpt" element={<ChatModule />} />
           </Routes>
         </ScrollToTop>
       );

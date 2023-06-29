@@ -36,11 +36,9 @@ export default function ImgMediaCard(props) {
         <Button id={props.title} /* className={classes.link} */ size="small" color="primary" onClick={props.clicked}>
           I'm interested in similar
         </Button>
-        <Link className={classes.link} to={props.buttonRight}>
-          <Button id={props.title + " - learn more"} size="small" color="primary" onClick={props.clicked} href={props.buttonRight}>
-            Learn More
-          </Button>
-        </Link>
+        <Button href={props.buttonRight} id={props.title + " - learn more"} color="primary">
+          Learn More
+        </Button>
       </CardActions>
     </Card>
   );

@@ -55,7 +55,7 @@ class Homepage extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Helmet>
           <title>Andras Vargas | HomePage</title>
           <link rel="canonical" href={`${window.location.hostname}/`} />
@@ -98,7 +98,7 @@ class Homepage extends Component {
           <PortfolioItems id="portf" color="primary" clicked={this.showModal} />
         </section>
         {/* <a href="#internal-user">internal-user</a> click this link to add user to GA4 Internals*/}
-      </div>
+      </>
     );
   }
 }
