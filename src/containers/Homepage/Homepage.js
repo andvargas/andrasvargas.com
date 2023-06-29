@@ -21,6 +21,13 @@ const classes = {
     right: "20px",
     top: "20px",
   },
+  gpt: {
+    position: "absolute",
+    left: "20px",
+    top: "90vh",
+    backgroundColor: "#82eefd",
+    color: "white",
+  },
   loginIcon: {
     color: "white",
   },
@@ -71,6 +78,13 @@ class Homepage extends Component {
             <WhatsApp />
           </Fab>
         </Tooltip>
+        <Link to="/chat-gpt">
+          <Tooltip title="Chat with AndreGPT" placement="right-end">
+            <Fab color="inherit" style={classes.gpt}>
+              <AccountCircle color="primary" style={classes.loginIcon} />
+            </Fab>
+          </Tooltip>
+        </Link>
 
         <Modal show={this.state.modalIsOpen} closed={this.closeModal}>
           {<Contact close={this.closeModal} />}

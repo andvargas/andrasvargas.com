@@ -17,6 +17,7 @@ import ScrollToTop from "./components/UI/ScrollToTop";
 import AddPost from "./containers/Page/AddPost";
 import Service1 from "./containers/Page/Service1";
 import Admin from "./containers/Admin/Admin";
+import ChatModule from "./components/ChatGPT/ChatModule";
 
 const theme = createTheme({
   palette: {
@@ -71,6 +72,7 @@ class App extends Component {
           <Route path="/dashboard" element={<Dashboard />} />
           {/*<Route path="/add-post" element={<AddPost />} />   remove this when live */}
           <Route path="/technical-seo-audit-service" element={<Service1 />} />
+          <Route path="/chat-gpt" element={<ChatModule />} />
         </Routes>
       </ScrollToTop>
     );
