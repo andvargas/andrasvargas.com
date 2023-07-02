@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../components/Logo/Logo";
 import NavBarSmall from "../../components/Navigation/NavBarSmall";
+import Navbar from "../../components/Navigation/NavBar";
 import PortfolioItems from "../Portfolio/PortfolioItems";
 import Helmet from "react-helmet";
 import AnchorLink from "react-anchor-link-smooth-scroll";
@@ -38,6 +39,9 @@ const classes = {
     backgroundColor: "rgb(0	208	92)",
     color: "white",
   },
+  menubar: {
+    display: "block",
+  },
 };
 
 class Homepage extends Component {
@@ -54,6 +58,7 @@ class Homepage extends Component {
   };
 
   render() {
+    console.log(process.env.NODE_ENV);
     return (
       <>
         <Helmet>
@@ -84,6 +89,7 @@ class Homepage extends Component {
             </Fab>
           </Tooltip>
         </Link>
+        {/* <Navbar test={classes.menubar}></Navbar> */}
 
         <Modal show={this.state.modalIsOpen} closed={this.closeModal}>
           {<Contact close={this.closeModal} />}

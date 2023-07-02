@@ -21,7 +21,9 @@ const ChatModule = () => {
 
     setMessage("");
 
-    fetch("http://localhost:5001/chatgpt", {
+    const baseUrl = "https://localhost:5001";
+
+    fetch("https://api.andrasvargas.com/chatgpt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
