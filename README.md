@@ -115,10 +115,10 @@ Added a new page GA4 - GTM
 5 April
 Fixed login issue when changing from login to register and vice versa
 
+21 July 2023
+Added sticky menu bar to homepage - it appears at the bottom, and then when scrolled down, it sticks to the top.
+
 ## To Fix
 
 Dashboard.js
 The Task list doesn't have a unique key (Seems like it was a false positive, as now it works)
-
-Login doesnt work, but still looks like im logged in
-https://api.andrasvargas.com/activities/62aae362b24af1027d49c557

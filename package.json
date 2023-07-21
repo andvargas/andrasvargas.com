@@ -1,6 +1,6 @@
 {
   "name": "andrasvargas",
-  "version": "1.2",
+  "version": "1.21",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^5.16.5"
   }
 }

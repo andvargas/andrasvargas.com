@@ -20,18 +20,23 @@ const useStyles = makeStyles({
 });
 
 const NavBar = (props) => {
+  console.log(props);
   const classes = useStyles();
 
   const isAdmin = useSelector((state) => state.auth.userType);
   console.log(isAdmin);
 
   return (
-    <ul className={classes.root}>
+    <ul id={props.id} className={classes.root} style={props.btMenu}>
       <NavBarItem link="/">
         <img src={avLogo} width="30" alt="logo" />
       </NavBarItem>
       <NavBarItem link="/">Homepage</NavBarItem>
       <NavBarItem link="/technical-seo-audit-service">Services</NavBarItem>
+      <NavBarItem link="/about">About Me</NavBarItem>
+      <NavBarItem link="#" openForm={props.openForm}>
+        Contact Me
+      </NavBarItem>
       <NavBarItem link="/dashboard" restricted>
         Dashboard
       </NavBarItem>

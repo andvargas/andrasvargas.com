@@ -4,13 +4,6 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
-//import classes from "./NavBar.module.css";
-
-// const hide = "flex";
-// if (authorised) {
-//   hide = "none";
-// }
-
 const Item = styled(Button)({
   fontFamily: "Montserrat, sans serif",
   fontSize: "0.7em",
@@ -31,7 +24,6 @@ const Item = styled(Button)({
 });
 
 const NavBarItem = (props) => {
-  console.log(props);
   const authorised = useSelector((state) => state.auth.userId);
   const restricted = () => {
     if (!authorised && !props.restricted) {
@@ -42,7 +34,7 @@ const NavBarItem = (props) => {
   };
 
   const navButton = (
-    <li style={{ display: restricted() }}>
+    <li style={{ display: restricted() }} onClick={props.openForm}>
       <Item /* className={classes.NavBarItem} */>
         <Link to={props.link}>{props.children}</Link>
       </Item>
