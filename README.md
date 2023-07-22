@@ -120,5 +120,7 @@ Added sticky menu bar to homepage - it appears at the bottom, and then when scro
 
 ## To Fix
 
+- Add feature to record conversations with andreGPT
+
 Dashboard.js
 The Task list doesn't have a unique key (Seems like it was a false positive, as now it works)

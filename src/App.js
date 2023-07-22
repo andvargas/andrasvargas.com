@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import { Route, Routes } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  ThemeProvider as MuiThemeProvider,
+  StyledEngineProvider,
+  adaptV4Theme,
+} from "@mui/material/styles";
+import { ThemeProvider } from "@emotion/react";
 import "./App.css";
 import Contact from "./containers/Contact/Contact";
 import Auth from "./containers/Auth/Auth";
@@ -19,7 +25,7 @@ import Service1 from "./containers/Page/Service1";
 import Admin from "./containers/Admin/Admin";
 import ChatModule from "./components/ChatGPT/ChatModule";
 
-const theme = createTheme({
+const theme = createTheme(adaptV4Theme({
   palette: {
     primary: {
       main: "#ff6600",
@@ -47,7 +53,7 @@ const theme = createTheme({
       },
     },
   },
-});
+}));
 
 class App extends Component {
   componentDidMount() {
@@ -103,12 +109,18 @@ class App extends Component {
       );
     }
     return (
-      <ThemeProvider theme={theme}>
-        <div className="App">
-          {routes}
-          <Footer />
-        </div>
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <MuiThemeProvider theme={theme}>
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+              <div className="App">
+                {routes}
+                <Footer />
+              </div>
+            </ThemeProvider>
+          </StyledEngineProvider>
+        </MuiThemeProvider>
+      </StyledEngineProvider>
     );
   }
 }

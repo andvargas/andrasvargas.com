@@ -4,10 +4,10 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import { AppBar, Toolbar, Typography, Button, IconButton, Accordion, AccordionDetails, AccordionSummary, Paper } from "@mui/material";
-// import Toolbar from "@material-ui/core/Toolbar";
-// import Typography from "@material-ui/core/Typography";
-// import Button from "@material-ui/core/Button";
-// import IconButton from "@material-ui/core/IconButton";
+// import Toolbar from "@mui/material/Toolbar";
+// import Typography from "@mui/material/Typography";
+// import Button from "@mui/material/Button";
+// import IconButton from "@mui/material/IconButton";
 import { Menu, ExpandMore } from "@mui/icons-material";
 import axios from "../../axios-instance";
 import DisplayDate from "../../components/UI/DisplayDate";
@@ -71,7 +71,12 @@ const Dashboard = () => {
       </Helmet>
       <AppBar position="static" color="secondary">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+            size="large">
             <Menu />
           </IconButton>
           <Typography variant="h5" className={classes.title}>

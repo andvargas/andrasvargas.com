@@ -3,17 +3,17 @@ import Helmet from "react-helmet";
 
 // The Navbar should go into a new component
 import { AppBar, Toolbar, IconButton, Typography, Paper, Grid, Container, Dialog, Menu, Search, MoreVert } from "@mui/material";
-// import Toolbar from "@material-ui/core/Toolbar";
+// import Toolbar from "@mui/material/Toolbar";
 import { makeStyles } from "@mui/styles";
-// import IconButton from "@material-ui/core/IconButton";
-// import Typography from "@material-ui/core/Typography";
+// import IconButton from "@mui/material/IconButton";
+// import Typography from "@mui/material/Typography";
 // end Navbar
-// import Paper from "@material-ui/core/Paper";
-// import Grid from "@material-ui/core/Grid";
-// import Container from "@material-ui/core/Container";
+// import Paper from "@mui/material/Paper";
+// import Grid from "@mui/material/Grid";
+// import Container from "@mui/material/Container";
 // import ContactForm from '../../components/contactForm';
 import Contact from "../Contact/Contact";
-// import Dialog from "@material-ui/core/Dialog";
+// import Dialog from "@mui/material/Dialog";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -93,16 +93,21 @@ const Page = (props) => {
       </Helmet>
       <AppBar position="static" className={classes.root}>
         <Toolbar className={classes.toolbar}>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="open drawer"
+            size="large">
             <Menu />
           </IconButton>
           <Typography className={classes.title} variant="h1" noWrap>
             {titleArticle}
           </Typography>
-          <IconButton aria-label="search" color="inherit">
+          <IconButton aria-label="search" color="inherit" size="large">
             <Search />
           </IconButton>
-          <IconButton aria-label="display more actions" edge="end" color="inherit">
+          <IconButton aria-label="display more actions" edge="end" color="inherit" size="large">
             <MoreVert />
           </IconButton>
         </Toolbar>
