@@ -93,12 +93,7 @@ const Page = (props) => {
       </Helmet>
       <AppBar position="static" className={classes.root}>
         <Toolbar className={classes.toolbar}>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-            size="large">
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer" size="large">
             <Menu />
           </IconButton>
           <Typography className={classes.title} variant="h1" noWrap>
@@ -152,3 +147,5 @@ const Page = (props) => {
 };
 
 export default Page;
+
+// this is not in use, should rename and delete

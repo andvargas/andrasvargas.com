@@ -2,32 +2,31 @@ import React from "react";
 import { useSelector } from "react-redux";
 //import classes from "./NavBar.module.css";
 import avLogo from "../../staticAssets/avlogo-white.png";
-import { makeStyles } from "@mui/styles";
+import Box from "@mui/material/Box";
 
 import NavBarItem from "./NavBarItem2";
 
-const useStyles = makeStyles({
-  root: {
-    backgroundColor: "#56001e",
-    listStyle: "none",
-    display: "flex",
-    flexFlow: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "0",
-    marginTop: "0px",
-  },
-});
-
 const NavBar = (props) => {
   console.log(props);
-  const classes = useStyles();
 
   const isAdmin = useSelector((state) => state.auth.userType);
   console.log(isAdmin);
 
   return (
-    <ul id={props.id} className={classes.root} style={props.btMenu}>
+    <Box
+      id={props.id}
+      sx={{
+        backgroundColor: "#56001e",
+        listStyle: "none",
+        display: "flex",
+        flexFlow: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0",
+        marginTop: "0px",
+      }}
+      style={props.btMenu}
+    >
       <NavBarItem link="/">
         <img src={avLogo} width="30" alt="logo" />
       </NavBarItem>
@@ -45,7 +44,7 @@ const NavBar = (props) => {
       </NavBarItem>
       {isAdmin ? <NavBarItem link="/add-post">Add Article</NavBarItem> : null}
       {/* {props.isAuth ? <NavBarItem link="/register">Login/Register</NavBarItem> : <NavBarItem link="/logout">Log Out</NavBarItem>} */}
-    </ul>
+    </Box>
   );
 };
 

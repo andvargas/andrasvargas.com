@@ -2,50 +2,48 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import { AppBar, Toolbar, Typography, Button, IconButton, Accordion, AccordionDetails, AccordionSummary, Paper } from "@mui/material";
-// import Toolbar from "@mui/material/Toolbar";
-// import Typography from "@mui/material/Typography";
-// import Button from "@mui/material/Button";
-// import IconButton from "@mui/material/IconButton";
 import { Menu, ExpandMore } from "@mui/icons-material";
 import axios from "../../axios-instance";
 import DisplayDate from "../../components/UI/DisplayDate";
 import Duration from "../../components/UI/Duration";
 import Helmet from "react-helmet";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    flexGrow: 1,
-    alignItems: "center",
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  sessions: {
-    alignItems: "center",
-    margin: "16px 0",
-  },
-  acc: {
-    width: "60vw",
-    display: "flex",
-    flexDirection: "column",
-    margin: "8px 0",
-    textAlign: "left",
-  },
-  header: {
-    width: "90%",
-    padding: "20px",
-  },
+// Define the styled components
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  position: "static",
+  backgroundColor: theme.palette.secondary.main,
+}));
+
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+}));
+
+const StyledTitle = styled(Typography)(({ theme }) => ({
+  flexGrow: 1,
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+  textDecoration: "none",
+  color: "inherit",
+}));
+
+const StyledAccordion = styled(Accordion)(({ theme }) => ({
+  width: "60vw",
+  display: "flex",
+  flexDirection: "column",
+  margin: "8px 0",
+  textAlign: "left",
+}));
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  width: "90%",
+  padding: "20px",
 }));
 
 const Dashboard = () => {
-  const classes = useStyles();
   const company = useSelector((state) => state.auth.company);
 
   const [taskList, setTaskList] = useState([]);
@@ -64,44 +62,33 @@ const Dashboard = () => {
   const summary = taskList.reduce((acc, curr) => acc + curr.duration, 0);
 
   return (
-    <div className={classes.root}>
+    <>
       <Helmet>
         <title>Andras V. | Dashboard</title>
         <link rel="canonical" href={`${window.location.hostname}/dashboard`} />
       </Helmet>
-      <AppBar position="static" color="secondary">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            size="large">
+      <StyledAppBar color="secondary">
+        <StyledToolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu" size="large">
             <Menu />
           </IconButton>
-          <Typography variant="h5" className={classes.title}>
-            Dashboard (Beta)
-          </Typography>
-
-          {/* <Button component={Link} to="/add-post" underline="none" color="inherit">
-            Test
-          </Button> */}
-          <Button component={Link} to="/logout" underline="none" color="inherit">
+          <StyledTitle variant="h5">Dashboard (Beta)</StyledTitle>
+          <StyledButton component={Link} to="/logout" underline="none">
             Log Out
-          </Button>
-        </Toolbar>
-      </AppBar>
-      <Paper elevation={3} className={classes.header}>
+          </StyledButton>
+        </StyledToolbar>
+      </StyledAppBar>
+      <StyledPaper elevation={3}>
         <Typography variant="h6">This is a list of tasks Andras was working on this month</Typography>
         <Typography variant="body1">
           It has a number of {taskList ? taskList.length : 0} sessions (Start/Duration/Project - click for details).<br></br> Total hours spent this
           month: <Duration ms={summary} />
         </Typography>
-      </Paper>
-      <div className={classes.sessions}>
+      </StyledPaper>
+      <div>
         {taskList.map((session) => {
           return (
-            <Accordion className={classes.acc}>
+            <StyledAccordion>
               <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1a-content" id="panel1a-header">
                 <Typography>
                   <DisplayDate date={session.startDate} />
@@ -116,11 +103,11 @@ const Dashboard = () => {
                   })}
                 </Typography>
               </AccordionDetails>
-            </Accordion>
+            </StyledAccordion>
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 

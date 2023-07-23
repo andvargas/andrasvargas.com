@@ -2,42 +2,44 @@ import { Modal, Button, Container, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/Navigation/NavBar";
 import ReactMarkdown from "react-markdown";
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import { PictureAsPdf, ContactMailOutlined } from "@mui/icons-material";
 import ContactForm from "../../components/contactForm";
 import Helmet from "react-helmet";
 
-const useStyles = makeStyles((theme) => ({
-  textToLeft: {
-    "& > p, ul": {
-      textAlign: "left",
-    },
-  },
-  btn: {
-    textDecoration: "none",
-  },
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  paper: {
-    position: "absolute",
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-  container: {
-    paddingBottom: "40px",
+// Define the styled components
+const StyledModal = styled(Modal)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
+
+const StyledModalContent = styled("div")(({ theme }) => ({
+  position: "absolute",
+  width: 400,
+  backgroundColor: theme.palette.background.paper,
+  border: "2px solid #000",
+  boxShadow: theme.shadows[5],
+  padding: theme.spacing(2, 4, 3),
+}));
+
+const StyledContainer = styled(Container)(({ theme }) => ({
+  paddingBottom: "40px",
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+  textDecoration: "none",
+}));
+
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  "& > p, ul": {
+    textAlign: "left",
   },
 }));
 
 const Service1 = () => {
   const [content, setContent] = useState("");
   const [open, setOpen] = useState(false);
-  const classes = useStyles();
 
   useEffect(() => {
     fetch("/service-seo-audit.md")
@@ -64,26 +66,26 @@ const Service1 = () => {
         />
         <meta name="author" content="Andras Vargas" />
       </Helmet>
-      <Modal open={open} onClose={formHandleClose} className={classes.modal}>
-        <div className={classes.paper}>
+      <StyledModal open={open} onClose={formHandleClose}>
+        <StyledModalContent>
           <ContactForm onClose={formHandleClose} />
-        </div>
-      </Modal>
+        </StyledModalContent>
+      </StyledModal>
       <NavBar />
-      <Container maxWidth="sm" className={classes.container}>
-        <Typography component="div">
-          <ReactMarkdown className={classes.textToLeft}>{content}</ReactMarkdown>
-        </Typography>
+      <StyledContainer maxWidth="sm">
+        <StyledTypography component="div">
+          <ReactMarkdown>{content}</ReactMarkdown>
+        </StyledTypography>
         <a href="/technical-seo-audit.pdf" target="_blank">
           <Button variant="outlined" color="primary" startIcon={<PictureAsPdf />}>
             Download Sample
           </Button>
         </a>
 
-        <Button variant="contained" color="secondary" className={classes.btn} startIcon={<ContactMailOutlined />} onClick={formHandleOpen}>
+        <StyledButton variant="contained" color="secondary" startIcon={<ContactMailOutlined />} onClick={formHandleOpen}>
           Enquire Now
-        </Button>
-      </Container>
+        </StyledButton>
+      </StyledContainer>
     </>
   );
 };

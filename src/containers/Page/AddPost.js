@@ -1,33 +1,9 @@
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import React, { useRef, useState } from "react";
-import { makeStyles } from "@mui/styles";
 import SaveOutlined from "@mui/icons-material/SaveOutlined";
 import axios from "../../axios-instance";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    "& > *": {
-      margin: "7vw",
-      width: "100%",
-      // height: theme.spacing(50),
-    },
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  textField: {
-    margin: "10px 20px",
-  },
-  btn: {
-    color: "white",
-  },
-}));
-
 const AddPost = () => {
-  const classes = useStyles();
   const titleInputRef = useRef();
   const abstractInputRef = useRef();
   const pathInputRef = useRef();
@@ -57,15 +33,69 @@ const AddPost = () => {
   };
   console.log("Need to fix form to reset after submit - still not working");
   return (
-    <Box className={classes.root}>
-      <Paper className={classes.form} variant="outlined" component={"form"} onSubmit={formSubmitHandler}>
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        "& > *": {
+          margin: "7vw",
+          width: "100%",
+          // height: theme.spacing(50),
+        },
+      }}
+    >
+      <Paper
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+        variant="outlined"
+        component={"form"}
+        onSubmit={formSubmitHandler}
+      >
         <Typography variant="h1">Add a blog post</Typography>
-        <TextField className={classes.textField} id="title" inputRef={titleInputRef} label="Title" variant="outlined" />
-        <TextField className={classes.textField} id="abstract" label="Abstract" variant="outlined" inputRef={abstractInputRef} />
-        <TextField className={classes.textField} id="path" label="Path" variant="outlined" inputRef={pathInputRef} />
-        <TextField className={classes.textField} id="article" label="Article" variant="outlined" inputRef={bodyInputRef} multiline minRows={4} />
         <TextField
-          className={classes.textField}
+          sx={{
+            margin: "10px 20px",
+          }}
+          id="title"
+          inputRef={titleInputRef}
+          label="Title"
+          variant="outlined"
+        />
+        <TextField
+          sx={{
+            margin: "10px 20px",
+          }}
+          id="abstract"
+          label="Abstract"
+          variant="outlined"
+          inputRef={abstractInputRef}
+        />
+        <TextField
+          sx={{
+            margin: "10px 20px",
+          }}
+          id="path"
+          label="Path"
+          variant="outlined"
+          inputRef={pathInputRef}
+        />
+        <TextField
+          sx={{
+            margin: "10px 20px",
+          }}
+          id="article"
+          label="Article"
+          variant="outlined"
+          inputRef={bodyInputRef}
+          multiline
+          minRows={4}
+        />
+        <TextField
+          sx={{
+            margin: "10px 20px",
+          }}
           id="resourceBox"
           label="Resource Box"
           variant="outlined"
@@ -76,7 +106,9 @@ const AddPost = () => {
 
         <Button
           type="submit"
-          className={classes.btn}
+          sx={{
+            color: "white",
+          }}
           variant="contained"
           color="primary"
           startIcon={<SaveOutlined />}
