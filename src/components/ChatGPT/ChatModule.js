@@ -6,7 +6,7 @@ const ChatModule = () => {
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
-  // const [sessionId, setSessionId] = useState(Date.now());
+  const [sessionId, setSessionId] = useState(Date.now());
 
   const chat = async (e, message) => {
     e.preventDefault();
@@ -21,14 +21,15 @@ const ChatModule = () => {
 
     setMessage("");
 
-    const baseUrl = "https://localhost:5001";
+    const baseUrl = process.env.NODE_ENV === "development" ? "http://localhost:5001" : "https://api.andrasvargas.com";
 
-    fetch("https://api.andrasvargas.com/chatgpt", {
+    fetch(baseUrl + "/chatgpt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        sessionId: sessionId,
         chats,
       }),
     })
@@ -38,8 +39,14 @@ const ChatModule = () => {
         setChats(msgs);
         setIsTyping(false);
         window.scrollTo(0, document.body.scrollHeight);
-        console.log(chats);
+
+        // Handle any errors in the backend response
+        if (data.error) {
+          console.error("Error saving conversation:", data.error);
+          // You can show an error message to the user here
+        }
       })
+
       .catch((error) => {
         console.log(error);
       });

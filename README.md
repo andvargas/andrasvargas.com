@@ -118,9 +118,14 @@ Fixed login issue when changing from login to register and vice versa
 21 July 2023
 Added sticky menu bar to homepage - it appears at the bottom, and then when scrolled down, it sticks to the top.
 
-## To Fix
+24 July
+Fixed some positioning glitches with menubar
 
-- Add feature to record conversations with andreGPT
+V 1.3
+
+- Added feature to record conversations with andreGPT
+
+## To Fix
 
 Dashboard.js
 The Task list doesn't have a unique key (Seems like it was a false positive, as now it works)

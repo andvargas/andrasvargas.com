@@ -1,6 +1,6 @@
 {
   "name": "andrasvargas",
-  "version": "1.21",
+  "version": "1.3",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",

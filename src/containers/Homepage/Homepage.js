@@ -15,6 +15,7 @@ import Modal from "../../components/UI/Modal/Modal";
 import Backdrop from "../../components/UI/Backdrop/BackDrop";
 import Contact from "../Contact/Contact";
 
+const distanceFromTop = window.innerHeight - 50;
 const classes = {
   login: {
     position: "absolute",
@@ -41,7 +42,7 @@ const classes = {
   },
   menubar: {
     position: "absolute",
-    top: "94vh",
+    top: distanceFromTop,
     right: 0,
     width: "100%",
     padding: "10px",
@@ -62,6 +63,7 @@ const classes = {
 const Homepage = ({ isAuthenticated }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [menuStyle, setMenuStyle] = useState(classes.menubar);
+  const [isScrolled, setIsScrolled] = useState(true); // State to track scrolling
 
   const showModal = () => {
     setModalIsOpen(true);
@@ -71,40 +73,46 @@ const Homepage = ({ isAuthenticated }) => {
     setModalIsOpen(false);
   };
 
-  if ("IntersectionObserver" in window) {
-    console.log("Your browser supports IntersectionObserver");
-  } else {
-    console.log("Your browser does not support IntersectionObserver");
-  }
-
   useEffect(() => {
-    // testing IntersectionObserver - delete this block when is done
     let target = document.getElementById("menubar");
-    console.log(target);
 
     let callback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          console.log("is Intersecting", menuStyle);
-          // setMenuFixed(false);
-        } else {
+        if (!entry.isIntersecting) {
           setMenuStyle(classes.fixedMenu);
-          console.log("doesnt intersect", menuStyle);
         }
-      });
+      }, []);
     };
 
     let options = {
       root: null, // null is the viewport
       rootMargin: "0px",
-      threshold: 0,
+      threshold: 0.9,
     };
 
-    let observer = new IntersectionObserver(callback);
+    let observer = new IntersectionObserver(callback, options);
     observer.observe(target);
-  });
 
-  // continue from here: add class when doesn't intersect .fixedMenu
+    // continue from here: add back original class when scroll goes back to top
+    // implement with scroll event listener
+    // Event listener for scroll
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(false);
+      } else {
+        setIsScrolled(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    if (isScrolled) setMenuStyle(classes.menubar);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 
   return (
     <>
