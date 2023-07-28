@@ -8,12 +8,12 @@ import { AccountCircle, WhatsApp } from "@mui/icons-material";
 import Tooltip from "@mui/material/Tooltip";
 
 import Logo from "../../components/Logo/Logo";
-import NavBarSmall from "../../components/Navigation/NavBarSmall";
 import Navbar from "../../components/Navigation/NavBar";
 import PortfolioItems from "../Portfolio/PortfolioItems";
 import Modal from "../../components/UI/Modal/Modal";
 import Backdrop from "../../components/UI/Backdrop/BackDrop";
 import Contact from "../Contact/Contact";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 const distanceFromTop = window.innerHeight - 50;
 const classes = {
@@ -56,7 +56,6 @@ const classes = {
   },
   projects: {
     marginTop: "20px",
-    zIndex: "-1",
   },
 };
 
@@ -93,9 +92,6 @@ const Homepage = ({ isAuthenticated }) => {
     let observer = new IntersectionObserver(callback, options);
     observer.observe(target);
 
-    // continue from here: add back original class when scroll goes back to top
-    // implement with scroll event listener
-    // Event listener for scroll
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setIsScrolled(false);
@@ -122,7 +118,7 @@ const Homepage = ({ isAuthenticated }) => {
       </Helmet>
       <Navbar id="menubar" btMenu={menuStyle} openForm={showModal} close={closeModal} />
       <header className="App-header">
-        <Logo />
+        <Logo width={200} />
         <h1 className="headline">ANDRAS VARGAS</h1>
       </header>
       <hr className="animated"></hr>
@@ -152,7 +148,10 @@ const Homepage = ({ isAuthenticated }) => {
       </Modal>
       <Backdrop show={modalIsOpen} closed={closeModal} />
       <AnchorLink offset="50" href="#portf">
-        <Fab style={classes.projects}>Projects</Fab>
+        <Fab variant="extended" style={classes.projects}>
+          Projects
+          <KeyboardDoubleArrowDownIcon style={{ paddingLeft: "5px" }} />
+        </Fab>
       </AnchorLink>
       {/* <NavBarSmall isAuth={isAuthenticated} contact={showModal} close={closeModal} /> */}
       <h2 className="quote">Full Stack Web Development</h2>

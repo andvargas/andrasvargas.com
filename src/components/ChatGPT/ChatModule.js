@@ -1,6 +1,8 @@
 import { useState } from "react";
 import classes from "./ChatModule.module.css";
 import ReactMarkdown from "react-markdown";
+import { Fab, Tooltip } from "@mui/material";
+import Logo from "../Logo/Logo";
 
 const ChatModule = () => {
   const [message, setMessage] = useState("");
@@ -52,9 +54,26 @@ const ChatModule = () => {
       });
   };
 
+  const disclaimer = (
+    <div className={classes.bubble}>
+      Hello, welcome to AndreChat, an AI-powered chat assistant designed to assist you with website-related queries. <br /> AndreChat is managed and
+      maintained by our team at Andras. Feel free to ask anything, and our AI language model will do its best to provide accurate answers. <br /> If
+      you choose to share your contact details with us, we can provide more personalized assistance and follow-up support. Rest assured, we take your
+      privacy seriously, and your contact details will be kept confidential. <br />
+      <strong>How can we assist you today?</strong>
+    </div>
+  );
+
   return (
     <main className={classes.main}>
-      <h1>This is AndreChat</h1>
+      <Tooltip title="HomePage" placement="left-end">
+        <Fab style={{ position: "fixed", left: "25px" }}>
+          <Logo width={39} />
+        </Fab>
+      </Tooltip>
+
+      <h1 style={{ paddingLeft: "15px" }}>AndreChat</h1>
+      {chats.length < 1 ? disclaimer : ""}
       <section>
         {chats.map((chat, index) => (
           <div key={index} className={chat.role === "user" ? classes.bubble + " " + classes.user_msg : classes.bubble}>
