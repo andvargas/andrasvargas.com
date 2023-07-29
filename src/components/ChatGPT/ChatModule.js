@@ -3,12 +3,14 @@ import classes from "./ChatModule.module.css";
 import ReactMarkdown from "react-markdown";
 import { Fab, Tooltip } from "@mui/material";
 import Logo from "../Logo/Logo";
+import { Helmet } from "react-helmet";
 
 const ChatModule = () => {
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const [sessionId, setSessionId] = useState(Date.now());
+  const [tooltip, setTooltipOff] = useState(true);
 
   const chat = async (e, message) => {
     e.preventDefault();
@@ -65,8 +67,20 @@ const ChatModule = () => {
   );
 
   return (
-    <main className={classes.main}>
-      <Tooltip title="HomePage" placement="left-end">
+    <main className={classes.main} onClick={() => setTooltipOff(false)}>
+      <Helmet>
+        <title>Andras Vargas | AI Powered Chat-assistant</title>
+        <link rel="canonical" href={`${window.location.hostname}/`} />
+        <meta name="description" content="Welcome to AndreChat, an AI-powered chat assistant designed to assist you with website-related queries." />
+      </Helmet>
+      <Tooltip
+        title="HomePage"
+        open={tooltip}
+        onMouseEnter={() => setTooltipOff(true)}
+        onMouseLeave={() => setTooltipOff(false)}
+        placement="right-end"
+        arrow
+      >
         <Fab style={{ position: "fixed", left: "25px" }}>
           <Logo width={39} />
         </Fab>

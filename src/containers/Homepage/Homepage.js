@@ -115,6 +115,10 @@ const Homepage = ({ isAuthenticated }) => {
       <Helmet>
         <title>Andras Vargas | HomePage</title>
         <link rel="canonical" href={`${window.location.hostname}/`} />
+        <meta
+          name="description"
+          content="Web-developer and web technology specialist. London based freelancer with a background in digital marketing of 10+ years."
+        />
       </Helmet>
       <Navbar id="menubar" btMenu={menuStyle} openForm={showModal} close={closeModal} />
       <header className="App-header">
